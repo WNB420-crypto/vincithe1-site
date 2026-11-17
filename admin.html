@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Vinci's Inbox</title>
+<style>
+:root{--void:#07080a;--panel:#14171b;--line:#23272d;--text:#ecebe6;--dim:#9a9c9f;--gold:#e3b341;--green:#38e07b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--void);color:var(--text);font:15px/1.5 system-ui,-apple-system,sans-serif;padding:20px;max-width:900px;margin:0 auto}
+h1{font:900 34px/1 Impact,sans-serif;text-transform:uppercase;margin:6px 0 4px}h1 span{color:var(--gold)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+button,a.btn{font:700 12px system-ui;text-transform:uppercase;letter-spacing:.04em;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;text-decoration:none}
+button.on{background:var(--text);color:var(--void)}
+button.gold{border-color:var(--gold);color:var(--gold)}button.green{border-color:var(--green);color:var(--green)}
+.item{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--panel);margin-bottom:12px}
+.item.new{border-color:var(--gold)}
+.item header{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.chip{font:12px monospace;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:3px 9px}
+pre{white-space:pre-wrap;font:13px/1.5 ui-monospace,monospace;color:#cfd1d4}
+img{max-width:100%;max-height:260px;border-radius:10px;margin-top:10px;display:block}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.empty{color:var(--dim);border:1px dashed var(--line);border-radius:14px;padding:26px;text-align:center}
+small{color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="top">
+  <div><small>vincithe1 · owner only</small><h1>Vinci's <span>Inbox</span></h1></div>
+  <div style="display:flex;gap:8px"><a class="btn" href="/admin/subscribers.csv">Subscribers CSV</a><a class="btn" href="/">View site</a></div>
+</div>
+<div class="tabs" id="tabs"></div>
+<div id="list"><div class="empty">Loading…</div></div>
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let all = [], featured = [], tab = 'All';
+async function load() {
+  const r = await fetch('/admin/api/inbox', { cache: 'no-store' });
+  if (!r.ok) { $('#list').innerHTML = '<div class="empty">Could not load the inbox.</div>'; return; }
+  const j = await r.json(); all = j.inbox.sort((a, b) => b.at.localeCompare(a.at)); featured = j.featured; render();
+}
+async function act(id, action) {
+  if (action === 'delete' && !window.confirm('Delete this submission?')) return;
+  await fetch('/admin/api/action', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id, action }) });
+  load();
+}
+function render() {
+  const kinds = ['All', ...new Set(all.map((e) => e.kind))];
+  $('#tabs').innerHTML = kinds.map((k) => {
+    const list = k === 'All' ? all : all.filter((e) => e.kind === k), unread = list.filter((e) => !e.read).length;
+    return `<button class="${k === tab ? 'on' : ''}" data-k="${esc(k)}">${esc(k)} (${list.length}${unread ? ', ' + unread + ' new' : ''})</button>`;
+  }).join('');
+  document.querySelectorAll('#tabs button').forEach((b) => b.onclick = () => { tab = b.dataset.k; render(); });
+  const list = all.filter((e) => tab === 'All' || e.kind === tab);
+  if (!list.length) { $('#list').innerHTML = '<div class="empty">Nothing here yet. Bookings, quotes, messages, subscribers and fan photos land here.</div>'; return; }
+  $('#list').innerHTML = list.map((e) => {
+    const fields = Object.entries(e).filter(([k]) => !['id', 'kind', 'at', 'read', 'photo'].includes(k))
+      .map(([k, v]) => `${k[0].toUpperCase() + k.slice(1)}: ${Array.isArray(v) ? v.join(', ') : v}`).join('\n');
+    const isF = featured.some((f) => f.id === e.id);
+    return `<div class="item ${e.read ? '' : 'new'}">
+      <header><span class="chip">${esc(e.kind)}</span><small>${new Date(e.at).toLocaleString()}</small></header>
+      <pre>${esc(fields)}</pre>
+      ${e.photo ? `<img src="${esc(e.photo)}" alt="Fan photo">` : ''}
+      <div class="acts">
+        ${e.email ? `<a class="btn" href="mailto:${esc(e.email)}">Reply by email</a>` : ''}
+        <button data-a="${e.read ? 'unread' : 'read'}" data-id="${e.id}">${e.read ? 'Mark unread' : 'Mark read'}</button>
+        ${e.photo ? `<button class="${isF ? 'gold' : 'green'}" data-a="${isF ? 'unfeature' : 'feature'}" data-id="${e.id}">${isF ? 'Remove from site' : 'Feature on site'}</button>` : ''}
+        <button data-a="delete" data-id="${e.id}">Delete</button>
+      </div></div>`;
+  }).join('');
+  document.querySelectorAll('[data-a]').forEach((b) => b.onclick = () => act(b.dataset.id, b.dataset.a));
+}
+load();
+</script>
+</body>
+</html>

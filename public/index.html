@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vincithe1 — Artist · Designer · Producer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#07080a; --ink:#0e1013; --panel:#14171b; --line:#23272d;
+  --text:#ecebe6; --dim:#9a9c9f; --gold:#e3b341; --green:#38e07b; --green-d:#15803d;
+  --purple:#8b5cf6; --r:18px;
+  --disp:'Big Shoulders Display',Impact,sans-serif; --body:'DM Sans',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--void);color:var(--text);font-family:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+section{padding:84px 0;position:relative}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--green)}
+h1,h2,h3{font-family:var(--disp);text-transform:uppercase;line-height:.92;letter-spacing:.01em}
+h2{font-size:clamp(44px,8vw,86px);font-weight:900}
+h2 em{font-style:normal;color:var(--gold)}
+h3{font-size:26px;font-weight:800}
+.lead{color:var(--dim);max-width:620px;font-size:17px;margin-top:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:700 14px var(--body);letter-spacing:.04em;text-transform:uppercase;padding:14px 22px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--text);cursor:pointer;text-decoration:none;transition:.2s}
+.btn:hover{border-color:var(--text)}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:#111}
+.btn.gold:hover{background:#f3c75a}
+.btn.green{background:var(--green);border-color:var(--green);color:#04130a}
+.btn.sm{padding:9px 15px;font-size:12px}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border:1px solid var(--line);border-radius:999px;color:var(--dim)}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(7,8,10,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--disp);font-weight:900;font-size:26px;text-decoration:none;letter-spacing:.02em}
+.logo span{color:var(--gold)}
+.navlinks{display:flex;gap:4px;list-style:none}
+.navlinks a{text-decoration:none;font-size:13px;font-weight:500;color:var(--dim);padding:8px 12px;border-radius:999px}
+.navlinks a:hover{color:var(--text);background:var(--panel)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:10px;width:42px;height:42px;font-size:18px;cursor:pointer}
+@media(max-width:1180px){
+  .navlinks{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--ink);padding:12px 20px 20px;border-bottom:1px solid var(--line)}
+  .navlinks.open{display:flex}
+  .navlinks a{font-size:17px;padding:12px 4px;border-radius:0;border-bottom:1px solid var(--line)}
+  .burger{display:block}
+}
+
+/* HERO */
+.hero{min-height:calc(100vh - 64px);display:flex;align-items:center;padding:60px 0 40px;overflow:hidden}
+.hero::after{content:"";position:absolute;width:780px;height:780px;right:-260px;top:-120px;border-radius:50%;
+  background:radial-gradient(circle,rgba(56,224,123,.22),transparent 62%);filter:blur(20px);z-index:-1}
+.hero::before{content:"";position:absolute;width:600px;height:600px;left:-260px;bottom:-200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(227,179,65,.18),transparent 62%);z-index:-1}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(78px,17vw,220px);font-weight:900;line-height:.82}
+.hero h1 .one{color:var(--gold);display:inline-block;transform:rotate(-4deg)}
+.hero{flex-direction:column;justify-content:center;align-items:stretch}
+.hero>.wrap{width:100%}
+.lleg{margin-bottom:44px;padding-bottom:30px;border-bottom:1px solid rgba(227,179,65,.35)}
+.lleg h1{font-size:clamp(56px,9vw,120px)}
+@media(min-width:900px){.lleg{flex-wrap:nowrap}.hw{font-size:clamp(28px,3.4vw,46px)}}
+.lleg{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.hw{font-family:var(--disp);font-weight:800;text-transform:uppercase;line-height:.95;text-align:right;font-size:clamp(28px,4vw,56px);margin-left:auto}
+.hw span{color:var(--green)}
+@media(max-width:700px){.hw{text-align:left;margin-left:0}}
+.roles{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 28px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero-card{background:linear-gradient(160deg,#171a1f,#0b0c0e);border:1px solid var(--line);border-radius:28px;padding:22px;position:relative;overflow:hidden}
+.disc{aspect-ratio:1;border-radius:50%;margin:6px auto 18px;width:86%;
+  background:repeating-radial-gradient(circle,#0b0c0d 0 2px,#16181b 2px 4px);display:grid;place-items:center;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.disc.spin{animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.disc .label{width:38%;aspect-ratio:1;border-radius:50%;background:conic-gradient(from 200deg,var(--green),var(--gold),var(--green));display:grid;place-items:center;font-family:var(--disp);font-weight:900;font-size:22px;color:#08130c}
+.np{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.np small{font-family:var(--mono);font-size:11px;color:var(--green);letter-spacing:.12em;text-transform:uppercase}
+.np strong{display:block;font-size:18px}
+.playbtn{width:54px;height:54px;border-radius:50%;border:none;background:var(--gold);color:#111;font-size:20px;cursor:pointer;flex:none}
+.wave{display:flex;gap:3px;align-items:end;height:34px;margin-top:16px}
+.wave i{flex:1;background:var(--line);border-radius:2px;transition:background .2s}
+.wave.on i{background:var(--green);animation:bounce 1s ease-in-out infinite}
+@keyframes bounce{50%{transform:scaleY(.35)}}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero{min-height:auto}}
+
+/* TICKER */
+.ticker{border-block:1px solid var(--line);background:var(--gold);color:#111;overflow:hidden;white-space:nowrap}
+.ticker div{display:inline-block;padding:14px 0;font-family:var(--disp);font-weight:800;font-size:24px;text-transform:uppercase;animation:tick 32s linear infinite}
+.ticker span{margin:0 22px}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* MUSIC */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}
+@media(max-width:900px){.split{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.track{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line);cursor:pointer}
+.track:last-child{border:none}
+.track .n{font-family:var(--mono);color:var(--dim);font-size:13px;text-align:center}
+.track b{display:block;font-size:16px}
+.track small{color:var(--dim);font-size:13px}
+.track.active b{color:var(--green)}
+.track .art{width:44px;height:44px;border-radius:10px;background-size:cover;background-position:center}
+.disco{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:18px;margin-top:22px}
+@media(max-width:520px){.disco{grid-template-columns:repeat(2,1fr);gap:12px}}
+.rel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:.25s;text-align:left;padding:0;color:inherit;font:inherit}
+.rel:hover{transform:translateY(-4px);border-color:var(--gold)}
+.rel img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+.rel div{padding:10px 12px 12px}
+.rel b{display:block;font-size:15px;line-height:1.2}
+.rel small{display:block;color:var(--dim);font-size:12px;margin-top:3px}
+.rel .ty{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:6px}
+.lb .tl{max-width:520px;margin:10px auto 0;color:var(--dim);font-size:13px;line-height:1.6;text-align:center}
+.lb .lbl{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.platforms{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;margin-top:28px}
+.vcard{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--panel);text-decoration:none;transition:.25s}
+.vcard:hover{transform:translateY(-4px);border-color:var(--gold)}
+.vthumb{aspect-ratio:16/9;display:grid;place-items:center;position:relative}
+.vthumb .pl{width:58px;height:58px;border-radius:50%;background:rgba(0,0,0,.55);border:2px solid #fff;display:grid;place-items:center;font-size:20px}
+.vthumb .tag{position:absolute;left:12px;top:12px}
+.vmeta{padding:14px 16px}
+.vmeta b{display:block}
+.vmeta small{color:var(--dim)}
+
+/* BTS */
+.bts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.bts .b{border-radius:var(--r);aspect-ratio:3/4;position:relative;overflow:hidden;border:1px solid var(--line);display:flex;align-items:flex-end;padding:16px;text-decoration:none}
+.bts .b:nth-child(2){transform:translateY(30px)}
+.bts .b:nth-child(4){transform:translateY(30px)}
+.bts .b b{font-family:var(--disp);font-size:24px;text-transform:uppercase;position:relative;z-index:1;line-height:1}
+.bts .b small{display:block;font-family:var(--body);font-size:12px;text-transform:none;color:#ddd;margin-top:6px;font-weight:400}
+.bts .b::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.85))}
+@media(max-width:800px){.bts{grid-template-columns:1fr 1fr}.bts .b:nth-child(n){transform:none}}
+
+/* EPK */
+.epk{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;margin-top:40px}
+@media(max-width:900px){.epk{grid-template-columns:1fr}}
+.portrait{border-radius:24px;aspect-ratio:4/5;background:
+  radial-gradient(circle at 50% 38%,rgba(227,179,65,.35),transparent 45%),
+  linear-gradient(160deg,#1b2a1f,#0a0c0b);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;padding:24px;position:relative;overflow:hidden}
+.portrait .big{font-family:var(--disp);font-weight:900;font-size:120px;line-height:.8;color:rgba(255,255,255,.06);position:absolute;top:20px;left:16px;text-transform:uppercase}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
+.fact{border:1px solid var(--line);border-radius:14px;padding:14px}
+.fact small{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.fact b{display:block;font-size:16px;margin-top:4px}
+
+/* FORMS */
+form{display:grid;gap:14px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.row{grid-template-columns:1fr}}
+label{font-size:12px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);display:grid;gap:6px}
+input,select,textarea{font:16px var(--body);color:var(--text);background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:13px 14px;width:100%;text-transform:none;letter-spacing:0}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--green)}
+textarea{min-height:110px;resize:vertical}
+.choices{display:flex;flex-wrap:wrap;gap:8px}
+.choices input{display:none}
+.choices label{cursor:pointer;display:inline-block;font-family:var(--body);text-transform:none;letter-spacing:0;font-size:14px;color:var(--text);border:1px solid var(--line);border-radius:999px;padding:9px 14px;transition:.15s}
+.choices input:checked+label{background:var(--green);color:#04130a;border-color:var(--green);font-weight:700}
+.note{display:none;border-radius:14px;padding:14px 16px;font-size:14px}
+.note.ok{display:block;background:rgba(56,224,123,.1);border:1px solid var(--green)}
+.note.fb{display:block;background:rgba(227,179,65,.08);border:1px solid var(--gold)}
+.note textarea{margin-top:10px;min-height:120px;font-size:13px;font-family:var(--mono)}
+.note .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+
+/* TABS */
+.tabs{display:flex;gap:8px;margin:30px 0 20px;flex-wrap:wrap}
+.tabs button{font:700 13px var(--body);text-transform:uppercase;letter-spacing:.05em;padding:11px 18px;border-radius:999px;background:var(--panel);border:1px solid var(--line);color:var(--dim);cursor:pointer}
+.tabs button.on{background:var(--text);color:var(--void);border-color:var(--text)}
+
+/* PORTFOLIO */
+#vnc{background:transparent}
+.vnchead{display:flex;align-items:center;gap:18px}
+.vncmark{width:110px;height:auto;filter:drop-shadow(0 8px 24px rgba(227,179,65,.25))}
+@media(max-width:600px){.vncmark{width:76px}}
+.vpane{margin-top:8px}
+/* cubes */
+.promo{display:grid;grid-template-columns:minmax(0,360px) 1fr;gap:32px;align-items:center;margin-top:28px;padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--panel);scroll-margin-top:90px}
+.promovid video{width:100%;aspect-ratio:9/16;border-radius:14px;border:1px solid var(--line);background:#000;display:block;object-fit:cover}
+.seg{display:flex;gap:6px;margin-top:12px;padding:4px;border:1px solid var(--line);border-radius:999px}
+.seg button{flex:1;font:700 12px var(--body);letter-spacing:.05em;text-transform:uppercase;padding:10px 8px;border:0;border-radius:999px;background:transparent;color:var(--dim);cursor:pointer}
+.seg button.on{background:var(--gold);color:#111}
+.promochips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+@media(max-width:760px){.promo{grid-template-columns:1fr;padding:16px}.promovid{max-width:360px;margin:0 auto;width:100%}}
+.cubes{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;margin-top:28px}
+.cubecard{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:22px 10px 16px;border:1px solid var(--line);border-radius:18px;background:var(--panel);text-decoration:none;transition:.25s}
+a.cubecard:hover{border-color:var(--gold);transform:translateY(-3px)}
+.scene{width:84px;height:84px;perspective:420px;margin:6px 0 10px}
+.cube{width:100%;height:100%;position:relative;transform-style:preserve-3d;animation:cubespin 12s linear infinite}
+.cubecard:hover .cube{animation-duration:4s}
+.cube .f{position:absolute;inset:0;border-radius:10px;border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;overflow:hidden;backface-visibility:hidden;background:#0b0c0e}
+.cube .f img{width:100%;height:100%;object-fit:cover}
+.cube .f.fit img{object-fit:contain;padding:6px}
+.cube .f b{font-family:var(--disp);font-weight:900;font-size:28px;letter-spacing:.02em}
+.cube .f1{transform:rotateY(0deg) translateZ(42px)}.cube .f2{transform:rotateY(90deg) translateZ(42px)}
+.cube .f3{transform:rotateY(180deg) translateZ(42px)}.cube .f4{transform:rotateY(-90deg) translateZ(42px)}
+.cube .f5{transform:rotateX(90deg) translateZ(42px)}.cube .f6{transform:rotateX(-90deg) translateZ(42px)}
+@keyframes cubespin{from{transform:rotateX(-18deg) rotateY(0)}to{transform:rotateX(-18deg) rotateY(360deg)}}
+.cubecard b.nm{font-size:15px;line-height:1.2}
+.cubecard small{color:var(--dim);font-size:12px;line-height:1.35}
+.cubecard .chip{margin-top:auto}
+.cubecard .chip.live{color:var(--green);border-color:var(--green)}
+.cubecard.big{grid-column:span 2;flex-direction:row;text-align:left;gap:22px;padding:24px}
+.cubecard.big .scene{width:120px;height:120px;flex:none}
+.cubecard.big .cube .f1{transform:rotateY(0deg) translateZ(60px)}.cubecard.big .cube .f2{transform:rotateY(90deg) translateZ(60px)}
+.cubecard.big .cube .f3{transform:rotateY(180deg) translateZ(60px)}.cubecard.big .cube .f4{transform:rotateY(-90deg) translateZ(60px)}
+.cubecard.big .cube .f5{transform:rotateX(90deg) translateZ(60px)}.cubecard.big .cube .f6{transform:rotateX(-90deg) translateZ(60px)}
+.cubecard.big .chip{align-self:flex-start}
+@media(max-width:520px){.cubecard.big{flex-direction:column;text-align:center}.cubecard.big .chip{align-self:center}}
+/* book */
+.bimg{display:block;width:100%;max-width:360px;margin:0 auto;border-radius:4px 10px 10px 4px;box-shadow:0 40px 80px rgba(0,0,0,.6),0 0 0 1px #2c2618}
+#wtbst{background:transparent}
+.bookgrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;margin-top:40px;align-items:start}
+@media(max-width:900px){.bookgrid{grid-template-columns:1fr}}
+.bcover{aspect-ratio:2/3;max-width:360px;width:100%;margin:0 auto;border-radius:6px 14px 14px 6px;position:relative;overflow:hidden;
+  background:radial-gradient(circle at 50% 30%,rgba(227,179,65,.28),transparent 55%),repeating-linear-gradient(90deg,#1a1712 0 26px,#15120d 26px 28px),#15120d;
+  box-shadow:-10px 0 0 -4px #0a0907 inset,0 40px 80px rgba(0,0,0,.6),0 0 0 1px #2c2618;display:flex;flex-direction:column;justify-content:space-between;padding:28px 24px}
+.bcover::before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;background:linear-gradient(90deg,rgba(0,0,0,.6),transparent)}
+.bcover .t{font-family:var(--disp);font-weight:900;text-transform:uppercase;line-height:.85;font-size:clamp(46px,7vw,64px);color:#f3ead2}
+.bcover .t span{color:var(--gold);display:block}
+.bcover .a{font-family:var(--mono);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#cdbf99}
+.bcover .w{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:#8c7f5c;text-transform:uppercase}
+.bcover .lamp{position:absolute;right:22px;top:24px;width:14px;height:14px;border-radius:50%;background:var(--gold);box-shadow:0 0 30px 10px rgba(227,179,65,.45)}
+.lessons{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.bookfacts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0}
+@media(max-width:600px){.bookfacts{grid-template-columns:1fr 1fr}}
+.yt{display:flex;gap:16px;align-items:center;margin-top:26px;padding:18px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(120deg,#2a0b0b,#14171b 70%);text-decoration:none;transition:.2s}
+.yt:hover{border-color:#ff3b3b}
+.yt .ytb{width:62px;height:44px;border-radius:12px;background:#ff2d2d;display:grid;place-items:center;flex:none;font-size:18px}
+.yt b{display:block;font-size:17px}
+.yt small{color:var(--dim)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+@media(max-width:900px){.pgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.pgrid{grid-template-columns:1fr}}
+.pc{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--panel);cursor:pointer;transition:.25s}
+.pc:hover{border-color:var(--green);transform:translateY(-3px)}
+.pv{aspect-ratio:4/3;display:grid;place-items:center;position:relative;overflow:hidden}
+.pm{padding:16px 18px}
+.pm b{font-size:17px;display:block}
+.pm small{color:var(--dim);font-size:13px}
+/* mock visuals */
+.mk-logo{width:110px;height:110px;border-radius:50%;border:5px solid var(--gold);display:grid;place-items:center;font-family:var(--disp);font-weight:900;font-size:40px;color:var(--gold);box-shadow:0 0 0 10px rgba(227,179,65,.12)}
+.mk-swatch{position:absolute;bottom:16px;left:16px;display:flex;gap:6px}
+.mk-swatch i{width:22px;height:22px;border-radius:6px}
+.mk-tee{width:130px;height:140px;background:#f3f1ea;clip-path:polygon(28% 0,72% 0,100% 18%,88% 36%,80% 30%,80% 100%,20% 100%,20% 30%,12% 36%,0 18%);display:grid;place-items:center;padding-top:20px}
+.mk-tee span{font-family:var(--disp);font-weight:900;color:var(--green-d);font-size:20px;text-align:center;line-height:.9}
+.mk-card{width:170px;height:100px;border-radius:8px;background:#111;border:1px solid #333;padding:12px;transform:rotate(-8deg);box-shadow:24px 24px 0 -6px var(--gold)}
+.mk-card b{font-family:var(--disp);font-size:20px;color:var(--gold);display:block}
+.mk-card i{display:block;height:4px;background:#444;margin-top:8px;border-radius:2px;width:70%}
+.mk-ad{width:120px;height:180px;border-radius:14px;background:linear-gradient(170deg,var(--purple),#1e1b4b);padding:12px;display:flex;flex-direction:column;justify-content:flex-end;font-family:var(--disp);font-size:24px;line-height:.9;font-weight:900;text-transform:uppercase}
+.mk-eq{display:flex;gap:5px;align-items:center;height:90px}
+.mk-eq i{width:9px;border-radius:5px;background:var(--gold)}
+.mk-film{width:180px;height:104px;border:6px solid #222;border-radius:6px;background:linear-gradient(120deg,#2a1d06,#5c3d0a);display:grid;place-items:center;font-family:var(--mono);font-size:11px;color:#f4d58d;letter-spacing:.2em;position:relative}
+.mk-web{position:relative;width:200px;height:130px}
+.mk-browser{position:absolute;left:0;top:0;width:170px;height:112px;border-radius:8px;background:#f3f1ea;padding:8px;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.mk-browser i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#ccc;margin-right:3px}
+.mk-browser b{display:block;font:600 9px var(--mono);color:#555;background:#e3e0d6;border-radius:4px;padding:3px 6px;margin:5px 0 8px}
+.mk-browser span,.mk-phone span{display:block;height:7px;border-radius:4px;background:#cfcbbf;margin-bottom:6px}
+.mk-phone{position:absolute;right:0;bottom:0;width:56px;height:96px;border-radius:12px;background:#111;border:3px solid #333;padding:14px 7px}
+.mk-phone span{background:#444}
+.mk-film::before{content:"● REC";position:absolute;top:6px;right:8px;color:#f43f5e;font-size:9px}
+
+/* SHOP */
+.shopgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+@media(max-width:900px){.shopgrid{grid-template-columns:1fr 1fr}}
+.prod{border-radius:var(--r);overflow:hidden;background:var(--panel);border:1px solid var(--line);display:flex;flex-direction:column}
+.prod .pv{aspect-ratio:1}
+.prod .pm{flex:1;display:flex;flex-direction:column;gap:10px}
+.prod .pm .btn{margin-top:auto;justify-content:center}
+.badge{width:120px;height:120px;border-radius:50%;background:var(--green-d);border:4px solid #f3f1ea;display:grid;place-items:center;font-family:var(--disp);font-weight:900;font-size:40px;color:#f3f1ea;box-shadow:0 0 0 6px var(--green-d)}
+.fangrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:18px}
+.fan{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--ink)}
+.fan img{aspect-ratio:1;object-fit:cover;width:100%}
+.fan small{display:block;padding:8px 10px;font-size:12px;color:var(--dim)}
+.empty{border:1.5px dashed var(--line);border-radius:14px;padding:26px;text-align:center;color:var(--dim);font-size:14px}
+.drop{border:1.5px dashed var(--line);border-radius:14px;padding:22px;text-align:center;cursor:pointer;color:var(--dim);font-size:14px;font-family:var(--body);text-transform:none;letter-spacing:0}
+.drop img{max-height:220px;margin:0 auto 10px;border-radius:10px}
+
+/* SUBSCRIBE */
+.sub{background:linear-gradient(120deg,var(--green-d),#0b3b1f 60%,#07160d);border-radius:32px;padding:clamp(28px,6vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;border:1px solid #1f5d36}
+@media(max-width:900px){.sub{grid-template-columns:1fr}}
+.sub h2{font-size:clamp(44px,7vw,78px)}
+.sub input,.sub textarea{background:rgba(0,0,0,.35);border-color:rgba(255,255,255,.18)}
+
+/* CONTACT */
+.socials{display:grid;gap:10px;margin-top:26px}
+.soc{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border:1px solid var(--line);border-radius:14px;text-decoration:none;transition:.2s;background:var(--panel)}
+.soc:hover{border-color:var(--gold)}
+.soc b{font-size:16px}
+.soc span{font-family:var(--mono);font-size:13px;color:var(--dim)}
+
+footer{border-top:1px solid var(--line);padding:40px 0 60px;color:var(--dim);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+
+/* GALLERIES */
+.gal{columns:3 260px;column-gap:14px;margin-top:36px}
+.gal figure{break-inside:avoid;margin:0 0 14px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--panel);cursor:zoom-in;position:relative}
+.gal img{width:100%;height:auto;transition:transform .5s}
+.gal figure:hover img{transform:scale(1.04)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;font-size:13px;background:linear-gradient(transparent,rgba(0,0,0,.8));color:#fff}
+@media(max-width:600px){.gal{columns:2;column-gap:10px}.gal figure{margin-bottom:10px}}
+.lb{position:fixed;inset:0;z-index:200;background:rgba(5,6,8,.96);display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px}
+.lb.open{display:flex}
+.lb{overflow-y:auto}
+.lb img{max-width:100%;max-height:80vh;border-radius:12px}
+.lb p{color:var(--dim);margin-top:12px;font-size:14px;text-align:center}
+.lb button{position:absolute;background:rgba(255,255,255,.08);border:1px solid var(--line);color:#fff;width:48px;height:48px;border-radius:50%;font-size:20px;cursor:pointer}
+.lb .x{top:18px;right:18px}.lb .lbp{left:14px;top:50%}.lb .lbn{right:14px;top:50%}
+
+/* BUSINESS SHEET */
+.bsheet{position:fixed;inset:0;z-index:150;background:rgba(5,6,8,.9);display:none;align-items:flex-end;justify-content:center}
+.bsheet.open{display:flex}
+.bsin{position:relative;width:100%;max-width:900px;max-height:90vh;overflow:auto;background:var(--ink);border:1px solid var(--line);border-radius:24px 24px 0 0;padding:26px 20px 40px}
+@media(min-width:700px){.bsheet{align-items:center}.bsin{border-radius:24px}}
+.bsx{position:absolute;top:14px;right:14px;width:42px;height:42px;border-radius:50%;background:var(--panel);border:1px solid var(--line);color:#fff;font-size:18px;cursor:pointer}
+#bsStatus:empty{display:none}
+button.cubecard{font:inherit;color:inherit;cursor:pointer}
+button.cubecard:hover{border-color:var(--gold);transform:translateY(-3px)}
+.prod .pv{background:#101214}
+
+/* INSTAGRAM FEED */
+.ighead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:18px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
+.igav{width:72px;height:72px;border-radius:50%;padding:3px;background:conic-gradient(#f58529,#dd2a7b,#8134af,#515bd4,#f58529);flex:none}
+.igav img{width:100%;height:100%;border-radius:50%;object-fit:contain;background:#0b0c0e;border:3px solid var(--void)}
+.iggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:14px;border-radius:14px;overflow:hidden}
+.iggrid a{position:relative;aspect-ratio:1;display:block;overflow:hidden;background:#111}
+.iggrid img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.iggrid a:hover img{transform:scale(1.06)}
+.iggrid a::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.35) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Crect x='3' y='3' width='18' height='18' rx='5'/%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Ccircle cx='17.5' cy='6.5' r='1' fill='white'/%3E%3C/svg%3E") center/34px no-repeat;opacity:0;transition:opacity .25s}
+.iggrid a:hover::after{opacity:1}
+
+/* SITE BACKGROUND + GLASS BUTTONS */
+body{background:var(--void)}
+.sitebg{position:fixed;inset:0;z-index:-2;background:url(img/bg.jpg) center 30%/cover no-repeat}
+.sitebg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,8,10,.55),rgba(7,8,10,.78) 45%,rgba(7,8,10,.9))}
+.hero::before,.hero::after{z-index:-1}
+.panel,.prod,.vcard,.pc,.cubecard,.tile,.fact,.soc,.ighead,.rel,.gal figure{background:rgba(20,23,27,.62);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+footer{background:rgba(7,8,10,.7)}
+.btn,.tabs button{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);color:#fff;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.btn:hover,.tabs button:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.5)}
+.btn.gold{background:rgba(227,179,65,.24);border-color:rgba(227,179,65,.75);color:#ffe7a8}
+.btn.gold:hover{background:rgba(227,179,65,.38)}
+.btn.green{background:rgba(56,224,123,.2);border-color:rgba(56,224,123,.75);color:#c9ffdc}
+.btn.green:hover{background:rgba(56,224,123,.34)}
+.tabs button.on{background:rgba(255,255,255,.85);color:var(--void);border-color:transparent}
+.playbtn{background:rgba(227,179,65,.3);border:1px solid rgba(227,179,65,.8);color:#ffe7a8;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.choices label{background:rgba(255,255,255,.06);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.choices input:checked+label{background:rgba(56,224,123,.3);color:#e6fff0;border-color:var(--green)}
+.lb button,.bsx{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+input,select,textarea{background:rgba(7,8,10,.55)}
+
+/* STREAMING PLAYERS */
+.pgrid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:800px){.pgrid2{grid-template-columns:1fr}}
+.pgrid2 iframe{width:100%;border:0;border-radius:14px;background:rgba(0,0,0,.4)}
+.lgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:600px){.lgrid{grid-template-columns:1fr}}
+.lcard{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-radius:16px;border:1px solid rgba(255,255,255,.2);border-left:4px solid var(--c);background:rgba(20,23,27,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);text-decoration:none;transition:.2s}
+.lcard:hover{border-color:var(--c)}
+.lcard b{font-size:18px}
+.lcard span{color:var(--dim);font-size:13px}
+#playersLive:not([hidden])+.lgrid{margin-top:12px}
+
+.pressphoto{background:url(img/press-photo.jpg) center 25%/cover no-repeat}
+.pressphoto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.85))}
+.pressphoto>*{position:relative;z-index:1}
+
+.epkh{font-size:24px;color:var(--gold);margin:26px 0 8px}
+#bio p{color:#d8d8d4;margin-bottom:6px}
+#bio p:first-child{color:var(--text)}
+.hl{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:6px 0 4px}
+@media(max-width:600px){.hl{grid-template-columns:1fr}}
+.hl li{display:flex;gap:12px;align-items:baseline;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(20,23,27,.62);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.hl b{font-family:var(--mono);font-size:12px;color:var(--green);white-space:nowrap;min-width:78px}
+.hl span{font-size:14px}
+
+#bio p.tribute{margin:12px 0 4px;padding:12px 16px;border-left:3px solid var(--gold);background:rgba(227,179,65,.08);border-radius:0 12px 12px 0;color:#f3e6c4;font-style:italic}
+
+.clips{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px}
+@media(max-width:700px){.clips{grid-template-columns:1fr}}
+.clip{margin:0;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:rgba(20,23,27,.62)}
+.clip video{width:100%;max-height:560px;background:#000;display:block;object-fit:contain}
+.clip figcaption,.press figcaption{padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.clip span,.press span{color:var(--dim);font-size:13px}
+.press{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:600px){.press{grid-template-columns:1fr}}
+.press figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:rgba(20,23,27,.62);cursor:zoom-in}
+.press img{width:100%;aspect-ratio:1;object-fit:cover;object-position:top;background:#fff}
+
+.newart{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px;text-align:center;background:radial-gradient(circle at 50% 35%,rgba(56,224,123,.18),transparent 60%),linear-gradient(160deg,#15201a,#0e1013)}
+.newart b{font-family:var(--disp);font-size:30px;text-transform:uppercase;line-height:.95}
+.newart small{color:var(--dim);font-size:12px}
+
+/* PAGES */
+[hidden]{display:none!important}
+.pagetop{padding-top:56px!important}
+.navlinks a.on{color:var(--text);background:var(--panel)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+@media(max-width:900px){.tiles{grid-template-columns:1fr 1fr}}
+.tile{position:relative;display:flex;flex-direction:column;gap:6px;min-height:150px;padding:20px;border-radius:18px;border:1px solid var(--line);background:var(--panel);text-decoration:none;overflow:hidden;transition:.25s}
+.tile::after{content:"→";position:absolute;right:18px;bottom:14px;font-size:22px;color:var(--c)}
+.tile:hover{border-color:var(--c);transform:translateY(-3px)}
+.tile small{font-family:var(--mono);color:var(--c);font-size:12px}
+.tile b{font-family:var(--disp);font-size:28px;line-height:.95;text-transform:uppercase;margin-top:auto}
+.tile span{color:var(--dim);font-size:13px;padding-right:24px}
+
+/* INBOX */
+#inbox{display:none;background:#0b0d10;border-top:2px solid var(--gold)}
+#inbox.show{display:block}
+.ib{display:grid;gap:12px;margin-top:24px}
+.ibi{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--panel)}
+.ibi header{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.ibi pre{white-space:pre-wrap;font:13px/1.5 var(--mono);color:#cfd1d4}
+.ibi img{max-height:160px;border-radius:10px;margin-top:10px}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="sitebg" aria-hidden="true"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#home">VINCI<span>THE1</span></a>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#music">Music</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#epk">EPK</a></li>
+      <li><a href="#wtbst">When the Block Starts Talking</a></li>
+      <li><a href="#vnc">VNC Labs</a></li>
+      <li><a href="#book">Book Me</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="lleg">
+      <h1>Long Live<br><span class="one">Gemellus</span></h1>
+      <p class="hw">Hardest working<br><span>signed, or not!</span></p>
+    </div>
+  </div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">New Orleans · Wake N Bake Entertainment</div>
+      <h1>Vinci<br>the<span class="one">1</span></h1>
+      <div class="roles">
+        <span class="chip">Recording Artist</span><span class="chip">Graphic Designer</span>
+        <span class="chip">Media Producer</span><span class="chip">Author</span><span class="chip">Founder</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn gold" href="#music">▶ Stream the music</a>
+        <a class="btn" href="#book">Book Vinci</a>
+        <a class="btn" href="#shop">Shop Wake N Bake</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="disc" id="disc"><div class="label">V1</div></div>
+      <div class="np">
+        <div><small id="npState">Featured track</small><strong id="npTitle">Wassup Wit It (GTA)</strong><span style="color:var(--dim);font-size:13px" id="npSub">prod. AudioHittaz</span></div>
+        <button class="playbtn" id="heroPlay" aria-label="Play">▶</button>
+      </div>
+      <div class="wave" id="wave"></div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" id="tickerWrap" aria-hidden="true"><div id="tick"></div></div>
+
+<!-- INSTAGRAM (home) -->
+<section id="igfeed" style="padding-bottom:20px">
+  <div class="wrap">
+    <div class="ighead">
+      <div class="igav"><img src="img/logos/vnc.png" alt="Vincithe1"></div>
+      <div style="flex:1;min-width:0">
+        <div class="eyebrow" style="margin-bottom:6px">On Instagram</div>
+        <b style="font-size:22px">@vincithe1</b>
+        <div style="color:var(--dim);font-size:14px">Artist · Designer · Producer · New Orleans</div>
+      </div>
+      <a class="btn gold sm" href="https://www.instagram.com/vincithe1" target="_blank" rel="noopener">Follow</a>
+    </div>
+    <div class="iggrid" id="iggrid"></div>
+    <div style="margin-top:16px;text-align:center"><a class="btn sm" href="https://www.instagram.com/vincithe1" target="_blank" rel="noopener">See more on Instagram ↗</a></div>
+  </div>
+</section>
+
+<!-- EXPLORE (home) -->
+<section id="explore">
+  <div class="wrap">
+    <div class="eyebrow">Explore</div>
+    <h2>Everything <em>Vinci</em></h2>
+    <div class="tiles">
+      <a class="tile" href="#music" style="--c:#38e07b"><small>01</small><b>Music &amp; Videos</b><span>Stream the catalog</span></a>
+      <a class="tile" href="#gallery" style="--c:#e3b341"><small>02</small><b>Gallery</b><span>Shoots around the city</span></a>
+      <a class="tile" href="#wtbst" style="--c:#e3b341"><small>03</small><b>When the Block Starts Talking</b><span>The book + AI series</span></a>
+      <a class="tile" href="#vnc" style="--c:#8b5cf6"><small>04</small><b>VNC Labs</b><span>Studio, businesses, commissions</span></a>
+      <a class="tile" href="#shop" style="--c:#38e07b"><small>05</small><b>Shop Wake N Bake</b><span>Tees, hoodies, fan fits</span></a>
+      <a class="tile" href="#book" style="--c:#f43f5e"><small>06</small><b>Book Me</b><span>Shows, features, walk-thrus, consultations</span></a>
+      <a class="tile" href="#epk" style="--c:#60a5fa"><small>07</small><b>EPK</b><span>Bio &amp; press kit</span></a>
+      <a class="tile" href="#contact" style="--c:#c0c4cc"><small>08</small><b>Contact</b><span>Holla at me &amp; subscribe</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section id="music">
+  <div class="wrap">
+    <div class="eyebrow">Stream</div>
+    <h2>Music <em>&amp;</em> Videos</h2>
+    <p class="lead">Straight out the Crescent City. Tap a track to queue it, then open it on your platform.</p>
+    <div class="split">
+      <div class="panel reveal">
+        <h3 style="margin-bottom:8px">Tracks</h3>
+        <div id="tracks"></div>
+        <div class="platforms">
+          <a class="btn sm" href="https://open.spotify.com/artist/5gmB6piRaZGQ5LRiwyK731" target="_blank" rel="noopener">Spotify</a>
+          <a class="btn sm" href="https://music.apple.com/us/artist/vincithe1/1332519973" target="_blank" rel="noopener">Apple Music</a>
+          <a class="btn sm" href="https://www.youtube.com/@vincithe1" target="_blank" rel="noopener">YouTube</a>
+          <a class="btn sm" href="https://www.tiktok.com/@vincithe1" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+      <div class="panel reveal" style="display:flex;flex-direction:column;justify-content:space-between;gap:20px;background:linear-gradient(160deg,#1a1508,#14171b 60%)">
+        <div>
+          <span class="chip" style="color:var(--gold);border-color:var(--gold)">Label</span>
+          <h3 style="margin-top:14px;font-size:40px">Wake N Bake<br>Entertainment</h3>
+          <p class="lead" style="font-size:15px">Independent, artist-owned. Every release distributed through UnitedMasters, every royalty tracked.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn gold" href="#book">Book a feature</a>
+          <a class="btn" href="#subscribe">Get drop alerts</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:56px">
+      <div class="eyebrow">Discography</div>
+      <h3 style="font-size:34px">Every <em style="color:var(--gold)">drop</em></h3>
+      <p class="lead" style="font-size:15px">Singles, EPs and projects from Wake N Bake Entertainment. Tap a cover to see it full size.</p>
+      <div class="disco" id="disco"></div>
+    </div>
+    <div class="players" id="players">
+      <div class="eyebrow" style="margin-top:44px">Listen now</div>
+      <div id="playersLive" hidden>
+        <div class="pgrid2">
+          <iframe title="Vincithe1 on Spotify" src="https://open.spotify.com/embed/artist/5gmB6piRaZGQ5LRiwyK731?theme=0" height="452" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          <iframe title="Vincithe1 on Apple Music" src="https://embed.music.apple.com/us/artist/vincithe1/1332519973" height="452" loading="lazy" allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"></iframe>
+        </div>
+      </div>
+      <div class="lgrid" id="playersLinks">
+        <a class="lcard" href="https://open.spotify.com/artist/5gmB6piRaZGQ5LRiwyK731" target="_blank" rel="noopener" style="--c:#1db954"><b>Spotify</b><span>Play Vincithe1 ↗</span></a>
+        <a class="lcard" href="https://music.apple.com/us/artist/vincithe1/1332519973" target="_blank" rel="noopener" style="--c:#fa2d48"><b>Apple Music</b><span>Play Vincithe1 ↗</span></a>
+        <a class="lcard" href="https://www.youtube.com/@vincithe1" target="_blank" rel="noopener" style="--c:#ff0000"><b>YouTube</b><span>Watch @vincithe1 ↗</span></a>
+      </div>
+    </div>
+    <div class="eyebrow" style="margin-top:44px">Clips &amp; live</div>
+    <div class="clips">
+      <figure class="clip"><video src="img/vid/live-hiho.mp4" poster="img/vid/live-hiho.jpg" controls playsinline preload="none"></video><figcaption><b>Live at Hi-Ho Lounge</b><span>Performing on the Bushido stage, New Orleans</span></figcaption></figure>
+      <figure class="clip"><video src="img/vid/clip-pool.mp4" poster="img/vid/clip-pool.jpg" controls playsinline preload="none"></video><figcaption><b>Music video clip</b><span>Poolside shoot</span></figcaption></figure>
+    </div>
+    <div class="vgrid" id="videos"></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" style="padding-top:20px">
+  <div class="wrap">
+    <div class="eyebrow">Vincithe1 Gallery</div>
+    <h2>Shot in <em>the city</em></h2>
+    <p class="lead">Shoots, sessions and the crew around New Orleans. Tap any photo to see it full size.</p>
+    <div class="gal" id="vGal"></div>
+  </div>
+</section>
+
+<!-- BTS -->
+<section id="bts" style="padding-top:20px">
+  <div class="wrap">
+    <div class="eyebrow">Behind the scenes</div>
+    <h2>The <em>Work</em></h2>
+    <p class="lead">Studio sessions, design builds, shoots and late nights. The full feed lives on Instagram.</p>
+    <div class="eyebrow" style="margin-top:36px">In the studio &amp; on set</div>
+    <div class="clips">
+      <figure class="clip"><video src="img/vid/studio-1.mp4" poster="img/vid/studio-1.jpg" controls playsinline preload="none"></video><figcaption><b>In the studio</b><span>Session at the board</span></figcaption></figure>
+      <figure class="clip"><video src="img/vid/studio-2.mp4" poster="img/vid/studio-2.jpg" controls playsinline preload="none"></video><figcaption><b>Studio session</b><span>Behind the scenes</span></figcaption></figure>
+      <figure class="clip"><video src="img/vid/studio-3.mp4" poster="img/vid/studio-3.jpg" controls playsinline preload="none"></video><figcaption><b>Studio session</b><span>With @saucegohan_073</span></figcaption></figure>
+    </div>
+    <div class="bts" id="btsgrid"></div>
+    <div style="margin-top:60px"><a class="btn" href="https://www.instagram.com/vincithe1" target="_blank" rel="noopener">Follow @vincithe1 for more →</a></div>
+  </div>
+</section>
+
+<!-- EPK -->
+<section id="epk">
+  <div class="wrap">
+    <div class="eyebrow">Press kit</div>
+    <h2>Electronic <em>Press Kit</em></h2>
+    <div class="epk">
+      <div class="portrait pressphoto reveal" role="img" aria-label="Press photo of Vincithe1">
+        <h3 style="font-size:clamp(28px,6vw,40px)">Craig “Vinci” Jones</h3>
+        <p style="color:#d6d6d6">aka Vincithe1 · New Orleans, LA</p>
+        <a class="btn sm" href="img/press-photo.jpg" target="_blank" rel="noopener" style="align-self:flex-start;margin-top:12px">Open full-size press photo ↗</a>
+      </div>
+      <div class="reveal">
+        <div id="bio">
+          <p style="font-size:18px">Vincithe1 is a New Orleans rapper, designer and label founder who built his whole lane from scratch. Since dropping his first music in 2019, he's put out 16 releases, including the 13-track album <em>The Vinci Code: Reloaded</em>, backed by self-made visuals and a brand that runs as deep as the music.</p>
+
+          <h3 class="epkh">The come-up</h3>
+          <p>Vinci started Wake N Bake Clothing in 2016, putting the WNB name on tees before it was ever on a track. His eye for design had him making graphics for artists all over New Orleans, building their covers and promo, until he finally stepped to the mic for himself in 2019.</p>
+
+          <h3 class="epkh">Wake N Bake Entertainment</h3>
+          <p>Vinci and Gemellus built Wake N Bake Entertainment from nothing: no backing, no shortcuts, just records, visuals and a brand they pushed by hand. The label is home to Vinci's catalog, from singles like "Say I Am," "Facecard" and "Real Don" to <em>The Vinci Code: Reloaded</em>, with music videos shot to match the city they came from.</p>
+          <p class="tribute">Long live Gemellus. Gone, but neither he nor his contributions to the Wake N Bake legacy will ever be forgotten.</p>
+
+          <h3 class="epkh">Taking it west</h3>
+          <p>Vinci sold his first home in 2021, and in 2024 he moved to California to grow WNB on a bigger stage. That run put him in rooms with industry powerhouses, on big stages like the Hash Cup in Los Angeles in 2025, and in the studio and on content with notable artists and influencers.</p>
+
+          <h3 class="epkh">Back home, building</h3>
+          <p>Back in New Orleans in early 2025, Vinci got into tech and launched VNC Labs, a group of businesses run with AI agents. He's also the author of <em>When the Block Starts Talking</em>.</p>
+        </div>
+
+        <h3 class="epkh">Highlights</h3>
+        <ul class="hl">
+          <li><b>Press</b><span>Featured in The New York Times</span></li>
+          <li><b>2016</b><span>Founded Wake N Bake Clothing</span></li>
+          <li><b>2016–19</b><span>Graphic design for New Orleans artists</span></li>
+          <li><b>2019</b><span>First music as Vincithe1</span></li>
+          <li><b>WNB Ent.</b><span>Co-built the label with Gemellus</span></li>
+          <li><b>16 releases</b><span>Incl. <em>The Vinci Code: Reloaded</em> (13 tracks)</span></li>
+                    <li><b>2021</b><span>Sold his first home</span></li>
+          <li><b>2024</b><span>Moved to California to expand WNB</span></li>
+          <li><b>2025</b><span>Performed at the Hash Cup, Los Angeles</span></li>
+          <li><b>2025</b><span>Back to New Orleans, founded VNC Labs</span></li>
+        </ul>
+
+        <div class="facts">
+          <div class="fact"><small>Based in</small><b>New Orleans, LA</b></div>
+          <div class="fact"><small>Label</small><b>Wake N Bake Ent.</b></div>
+          <div class="fact"><small>Distribution</small><b>UnitedMasters</b></div>
+          <div class="fact"><small>Active since</small><b>2019</b></div>
+          <div class="fact"><small>Has worked with</small><b>Geechi Gotti, KiddKidd, Ewol Samo, Curren$y</b></div>
+          <div class="fact"><small>Producers</small><b>AudioHittaz, Knowledge, Bjso_ill, Cam Beemer</b></div>
+        </div>
+        <h3 class="epkh">Press</h3>
+        <div class="press">
+          <figure><img src="img/press/nyt-katrina.jpg" alt="The New York Times: Life After the Storm: Children Who Survived Katrina Offer Lessons, featuring Vinci" loading="lazy"><figcaption><b>The New York Times</b><span>Featured in "Life After the Storm: Children Who Survived Katrina Offer Lessons" (Sept. 8, 2017)</span><a class="btn sm gold" href="https://nyti.ms/2eTvWYk" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="align-self:flex-start;margin-top:8px">Read the article ↗</a></figcaption></figure>
+          <figure><img src="img/press/wheres-the-wave.jpg" alt="Where's The Wave feature on I Need It by Vinci, Yung Mel and Gemellus" loading="lazy"><figcaption><b>Where's The Wave</b><span>Feature on "I Need It" with Yung Mel and Gemellus (2015)</span></figcaption></figure>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+          <button class="btn gold" id="copyEpk">Copy EPK text</button>
+          <a class="btn" href="#book">Book for an event</a>
+        </div>
+        <div class="note" id="epkNote"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHEN THE BLOCK STARTS TALKING -->
+<section id="wtbst">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--gold)">The book · by Craig "Vinci" Jones Jr.</div>
+    <h2>When the Block<br><em>Starts Talking</em></h2>
+    <div class="bookgrid">
+      <div class="reveal">
+        <a href="https://www.amazon.com/Block-Starts-Talking-Craig-Jones/dp/B0GVP821R7" target="_blank" rel="noopener" style="text-decoration:none;display:block" aria-label="Buy When the Block Starts Talking on Amazon">
+          <img src="img/wtbst-cover.jpg" alt="When the Block Starts Talking book cover by Craig Jones Jr." class="bimg"></a>
+      </div>
+      <div class="reveal">
+        <p style="font-size:18px">A novel written for young men, especially those growing up around pressure, poverty, trauma, temptation, and adult-sized expectations before adulthood ever arrives.</p>
+        <p style="color:var(--dim);margin-top:14px">It's gritty on purpose, but it doesn't glorify destruction. The point isn't to make street life look exciting. It's to show the cost of bad decisions, the weight that falls on families, and the different kind of strength it takes to build a clean life when chaos is normal. The dialogue uses modern slang and the story is set in New Orleans from 2025 to 2029.</p>
+        <div class="lessons">
+          <span class="chip">Know yourself</span><span class="chip">Keep yourself clean</span><span class="chip">Move with intention</span><span class="chip">Protect your future</span><span class="chip">Make legal money</span><span class="chip">Respect women</span><span class="chip">Value your health</span><span class="chip">Be someone the young can learn from</span>
+        </div>
+        <div class="bookfacts">
+          <div class="fact"><small>Format</small><b>Paperback</b></div>
+          <div class="fact"><small>Pages</small><b>71</b></div>
+          <div class="fact"><small>Published</small><b>May 1, 2026</b></div>
+          <div class="fact"><small>Genre</small><b>Teen &amp; YA</b></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn gold" href="https://www.amazon.com/Block-Starts-Talking-Craig-Jones/dp/B0GVP821R7" target="_blank" rel="noopener">Get the book on Amazon</a>
+          <a class="btn sm" href="https://www.instagram.com/wtbst_series" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn sm" href="https://www.tiktok.com/@whentheblockstart6" target="_blank" rel="noopener">TikTok</a>
+        </div>
+        <a class="yt" href="https://www.youtube.com/@whentheblockstartstalkingwtbst" target="_blank" rel="noopener">
+          <div class="ytb">▶</div>
+          <div><b>Watch the AI series on YouTube</b><small>The book brought to life as cinematic AI episodes. The characters speak for themselves.</small></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section id="book" style="padding-top:20px">
+  <div class="wrap">
+    <div class="eyebrow">Bookings</div>
+    <h2>Book <em>Vinci</em></h2>
+    <p class="lead">Shows, features, walk-throughs, and one-on-one business consultations. Send the details and Vinci's team will get back to you with availability and rates.</p>
+    <div class="panel" style="margin-top:34px">
+      <form data-kind="Music booking">
+        <label>Booking type</label>
+        <div class="choices">
+          <input type="radio" name="type" id="bt1" value="Live show / performance" checked><label for="bt1">Live show</label>
+          <input type="radio" name="type" id="bt2" value="Feature (verse on a track)"><label for="bt2">Feature verse</label>
+          <input type="radio" name="type" id="bt3" value="Walk-thru / appearance"><label for="bt3">Walk-thru</label>
+          <input type="radio" name="type" id="bt5" value="Business consultation"><label for="bt5">Business consultation</label>
+          <input type="radio" name="type" id="bt4" value="Hosting / other"><label for="bt4">Hosting / other</label>
+        </div>
+        <div class="row">
+          <label>Your name<input name="name" required></label>
+          <label>Email<input name="email" type="email" required></label>
+        </div>
+        <div class="row">
+          <label>Phone / IG<input name="phone"></label>
+          <label>Event date<input name="date" type="date"></label>
+        </div>
+        <div class="row">
+          <label>City &amp; venue<input name="venue" placeholder="e.g. New Orleans — Republic NOLA"></label>
+          <label>Budget<select name="budget"><option>Let's talk</option><option>Under $500</option><option>$500 – $1,500</option><option>$1,500 – $5,000</option><option>$5,000+</option></select></label>
+        </div>
+        <div class="row" id="consultFields" hidden>
+          <label>Consultation topic<select name="topic"><option>Starting or growing a business</option><option>Branding &amp; design</option><option>Websites &amp; apps</option><option>Music business &amp; royalties</option><option>Social media &amp; marketing</option><option>AI tools &amp; automation</option><option>Other</option></select></label>
+          <label>Meeting style<select name="format"><option>Video call</option><option>Phone call</option><option>In person (New Orleans)</option></select></label>
+        </div>
+        <label>Details<textarea name="details" id="bookDetails" placeholder="Set length, expected crowd, travel, the track you want a feature on…"></textarea></label>
+        <button class="btn gold" type="submit" style="justify-self:start">Send booking request</button>
+        <div class="note"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- VNC LABS -->
+<section id="vnc">
+  <div class="wrap">
+    <div class="vnchead">
+      <img src="img/logos/vnc.png" alt="VNC logo" class="vncmark">
+      <div>
+        <div class="eyebrow">VNC Labs</div>
+        <h2>VNC <em>Labs</em></h2>
+      </div>
+    </div>
+    <p class="lead">The studio behind every brand Vinci runs: design and media for clients, a family of businesses built in-house, and sites built on commission.</p>
+    <div class="tabs" id="vncTabs" role="tablist">
+      <button class="on" data-tab="studio" role="tab">Creative Studio</button>
+      <button data-tab="biz" role="tab">VNC Businesses</button>
+      <button data-tab="comm" role="tab">VNC Commissions</button>
+    </div>
+
+    <!-- VNC BUSINESSES -->
+    <div class="vpane" data-pane="biz" hidden>
+      <h3 style="font-size:clamp(34px,6vw,56px)">VNC <span style="color:var(--gold)">Businesses</span></h3>
+      <p style="color:var(--dim);margin:8px 0 6px;max-width:620px">Every company in the VNC family. Tap a cube to visit its site.</p>
+      <div class="cubes" id="bizCubes"></div>
+    </div>
+
+    <!-- VNC COMMISSIONS -->
+    <div class="vpane" data-pane="comm" hidden>
+      <h3 style="font-size:clamp(34px,6vw,56px)">VNC <span style="color:var(--gold)">Commissions</span></h3>
+      <p style="color:var(--dim);margin:8px 0 6px;max-width:620px">Sites, platforms and promotional ads built by VNC Labs for other creators and brands. Want yours next? <a href="#designForm" style="color:var(--green)">Request a quote.</a></p>
+      <div class="cubes" id="commCubes"></div>
+
+      <!-- PROMO ADS -->
+      <div class="promo" id="se-promo">
+        <div class="promovid">
+          <video id="seVid" src="img/vid/se-promo-clay.mp4" poster="img/vid/se-promo-clay.jpg" controls playsinline preload="none"></video>
+          <div class="seg" role="group" aria-label="Choose a version">
+            <button type="button" class="on" data-cut="clay">Claymation cut</button>
+            <button type="button" data-cut="live">Live-action cut</button>
+          </div>
+        </div>
+        <div>
+          <div class="eyebrow">Commissioned promotional advertisement</div>
+          <h3 style="font-size:clamp(34px,6vw,52px)">SE Private <span style="color:var(--gold)">Party</span></h3>
+          <p style="color:var(--dim);margin-top:10px">Client: <b style="color:var(--text)">Social Experiment</b> (@socialexperimentishere)</p>
+          <p style="color:var(--dim);margin-top:10px">An invite-only party reel for Instagram. It opens in a private jet cockpit as the captain announces the landing in New Orleans, follows the guests getting the invite by text, then flies over the estate and drops into the party. DJ lineup, date and time are set in the flyer's own lettering. Delivered in two cuts: claymation and live-action.</p>
+          <div class="promochips"><span class="chip">AI video</span><span class="chip">Voiceover</span><span class="chip">Motion graphics</span><span class="chip">Instagram Reel · 9:16</span></div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:22px">
+            <a class="btn gold" href="https://socialexperimentishere.merlin.site/" target="_blank" rel="noopener">Visit Social Experiment ↗</a>
+            <a class="btn" href="https://www.instagram.com/socialexperimentishere" target="_blank" rel="noopener">@socialexperimentishere ↗</a>
+          </div>
+        </div>
+      </div>
+      <h3 style="font-size:clamp(28px,5vw,44px);margin-top:48px">Built <span style="color:var(--gold)">in-house</span></h3>
+      <p style="color:var(--dim);margin:8px 0 6px;max-width:620px">Sites and apps VNC Labs designed and built for its own businesses. Tap one to see it live.</p>
+      <div class="cubes" id="buildCubes"></div>
+    </div>
+
+    <!-- CREATIVE STUDIO -->
+    <div class="vpane" data-pane="studio">
+    <h3 style="font-size:clamp(34px,6vw,56px)">Design &amp; <span style="color:var(--gold)">Media</span> Production</h3>
+    <p style="color:var(--dim);margin-top:8px;max-width:620px">Logos, brand kits, merch, print, ads, jingles, commercials, websites and apps, built for artists, brands and local businesses. Tap any service to start a request.</p>
+    <div class="pgrid" id="pgrid"></div>
+
+    <div class="panel" style="margin-top:40px" id="designForm">
+      <h3 style="margin-bottom:6px">Book graphic &amp; media work</h3>
+      <p style="color:var(--dim);margin-bottom:18px;font-size:14px">Pick everything you need. You'll get a quote back.</p>
+      <form data-kind="Design / media request">
+        <label>Services</label>
+        <div class="choices" id="svcChoices"></div>
+        <div class="row">
+          <label>Your name<input name="name" required></label>
+          <label>Email<input name="email" type="email" required></label>
+        </div>
+        <div class="row">
+          <label>Business / brand<input name="brand"></label>
+          <label>Deadline<input name="deadline" type="date"></label>
+        </div>
+        <label>Budget<select name="budget"><option>Need a quote</option><option>Under $250</option><option>$250 – $750</option><option>$750 – $2,000</option><option>$2,000+</option></select></label>
+        <label>Tell me about the project<textarea name="details" placeholder="Colors, vibe, references, where it'll be used…"></textarea></label>
+        <button class="btn green" type="submit" style="justify-self:start">Request a quote</button>
+        <div class="note"></div>
+      </form>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section id="shop">
+  <div class="wrap">
+    <div class="eyebrow">Wake &amp; Bake Clothing Co.</div>
+    <img src="img/wnb/banner.jpg" alt="Wake &amp; Bake Clothing Co. banner" style="width:100%;border-radius:16px;border:1px solid var(--line);margin:4px 0 28px">
+    <div style="display:flex;align-items:center;gap:16px"><img src="img/wnb/badge.png" alt="WNB badge" style="width:72px;height:72px;border-radius:50%"><h2>Shop <em>the Drip</em></h2></div>
+    <p class="lead">Wake-and-bake humor, New Orleans streetwear and Wake N Bake Entertainment merch, printed to order and shipped across the US. Checkout runs through the official Etsy store.</p>
+    <div class="tabs" id="shopTabs" style="margin-top:28px"></div>
+    <div class="shopgrid" id="shopgrid"></div>
+    <div class="split" style="margin-top:40px;align-items:center">
+      <video src="img/vid/wnb-production.mp4" controls playsinline preload="none" poster="img/vid/wnb-production.jpg" style="width:100%;max-height:640px;border-radius:18px;border:1px solid var(--line);background:#000"></video>
+      <div><div class="eyebrow">Where it started</div><h3 style="font-size:clamp(34px,6vw,52px)">WNB <span style="color:var(--gold)">production</span></h3><p style="color:var(--dim);margin-top:10px">Pressing the original WNB 4:20AM tees by hand in 2017, back when every shirt was printed in the shop.</p></div>
+    </div>
+    <div class="eyebrow" style="margin-top:40px">Wake N Bake on camera</div>
+    <div class="clips">
+      <figure class="clip"><video src="img/vid/wnb-hats-1.mp4" poster="img/vid/wnb-hats-1.jpg" controls playsinline preload="none"></video><figcaption><b>WNB dad hats</b><span>Repping the hat with the crew</span></figcaption></figure>
+      <figure class="clip"><video src="img/vid/wnb-hoodie.mp4" poster="img/vid/wnb-hoodie.jpg" controls playsinline preload="none"></video><figcaption><b>Wake &amp; Bake hoodie</b><span>Kicking it with the crew</span></figcaption></figure>
+      <figure class="clip"><video src="img/vid/wnb-hats-2.mp4" poster="img/vid/wnb-hats-2.jpg" controls playsinline preload="none"></video><figcaption><b>WNB dad hat</b><span>On the block</span></figcaption></figure>
+    </div>
+    <div class="split" style="margin-top:40px;align-items:center">
+      <video src="img/wnb/launch-reel.mp4" controls playsinline muted loop preload="metadata" poster="img/wnb/lineup.jpg" style="width:100%;max-height:640px;border-radius:18px;border:1px solid var(--line);background:#000"></video>
+      <div><div class="eyebrow">The full lineup</div><h3 style="font-size:clamp(34px,6vw,52px)">Launch <span style="color:var(--gold)">reel</span></h3><p style="color:var(--dim);margin-top:10px">Every design in the Wake &amp; Bake Clothing Co. drop, printed on Comfort Colors 1717 tees, sizes S to 3XL.</p></div>
+    </div>
+    <div style="margin-top:22px"><a class="btn gold" href="https://www.etsy.com/shop/WNBClothingCo" target="_blank" rel="noopener">Visit the full store on Etsy →</a></div>
+
+    <div style="margin-top:70px">
+      <div class="eyebrow">Wake N Bake tee gallery</div>
+      <h3 style="font-size:clamp(34px,6vw,56px)">Worn in <span style="color:var(--gold)">the wild</span></h3>
+      <div class="gal" id="wGal"></div>
+    </div>
+
+    <div class="split" style="margin-top:70px">
+      <div class="panel">
+        <h3>Get featured</h3>
+        <p style="color:var(--dim);margin:6px 0 18px;font-size:14px">Rocking Wake N Bake? Send a pic and you could land on the site and on @wakenbakeco16.</p>
+        <form data-kind="Fan photo submission" id="fanForm">
+          <label class="drop" id="drop" for="fanFile"><span id="dropTxt">📸 Tap to choose a photo</span></label>
+          <input type="file" id="fanFile" accept="image/*" style="display:none">
+          <div class="row">
+            <label>Name / IG handle<input name="name" required placeholder="@yourhandle"></label>
+            <label>Email<input name="email" type="email"></label>
+          </div>
+          <label>What are you wearing?<input name="piece" placeholder="e.g. WNB badge hoodie"></label>
+          <label style="flex-direction:row;display:flex;align-items:center;gap:10px;text-transform:none;letter-spacing:0;font-family:var(--body);font-size:14px;color:var(--text)">
+            <input type="checkbox" name="consent" value="yes" required style="width:auto"> I own this photo and okay it being posted.
+          </label>
+          <button class="btn green" type="submit" style="justify-self:start">Submit photo</button>
+          <div class="note"></div>
+        </form>
+      </div>
+      <div class="panel">
+        <h3>Featured fam</h3>
+        <div class="fangrid" id="featured"><div class="empty" style="grid-column:1/-1">The first featured fits drop here. Submit yours. 👀</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIBE -->
+<section id="subscribe" style="padding-top:10px">
+  <div class="wrap">
+    <div class="sub">
+      <div>
+        <div class="eyebrow" style="color:#c9ffdc">Subscribe</div>
+        <h2>Don't miss<br>a <em>drop</em></h2>
+        <p style="color:#c9ffdc;margin-top:14px">New music, videos, merch restocks and behind-the-scenes, before anybody else.</p>
+      </div>
+      <form data-kind="Subscriber">
+        <div class="row">
+          <label style="color:#c9ffdc">Name<input name="name"></label>
+          <label style="color:#c9ffdc">Email<input name="email" type="email" required></label>
+        </div>
+        <label style="color:#c9ffdc">Send me</label>
+        <div class="choices">
+          <input type="checkbox" name="interests" id="s1" value="Music" checked><label for="s1">Music</label>
+          <input type="checkbox" name="interests" id="s2" value="Videos" checked><label for="s2">Videos</label>
+          <input type="checkbox" name="interests" id="s3" value="Merch drops" checked><label for="s3">Merch drops</label>
+          <input type="checkbox" name="interests" id="s4" value="Design deals"><label for="s4">Design deals</label>
+          <input type="checkbox" name="interests" id="s5" value="Shows"><label for="s5">Shows</label>
+        </div>
+        <button class="btn gold" type="submit" style="justify-self:start">Subscribe</button>
+        <div class="note"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap split" style="margin-top:0;align-items:start">
+    <div>
+      <div class="eyebrow">Contact</div>
+      <h2>Holla <em>at me</em></h2>
+      <p class="lead">Questions, collabs, press or business. Drop a line, or find me anywhere at <b style="color:var(--text)">@vincithe1</b>.</p>
+      <div class="socials" id="socials"></div>
+    </div>
+    <div class="panel">
+      <form data-kind="Contact message">
+        <div class="row">
+          <label>Name<input name="name" required></label>
+          <label>Email<input name="email" type="email" required></label>
+        </div>
+        <label>Subject<select name="subject"><option>General</option><option>Collab</option><option>Press / interview</option><option>Business</option><option>Merch order help</option></select></label>
+        <label>Message<textarea name="message" required></textarea></label>
+        <button class="btn gold" type="submit" style="justify-self:start">Send message</button>
+        <div class="note"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- OWNER INBOX -->
+<section id="inbox">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--gold)">Only you can see this</div>
+    <h2>Vinci's <em>Inbox</em></h2>
+    <div class="tabs" id="ibTabs"></div>
+    <div class="ib" id="ibList"></div>
+  </div>
+</section>
+
+<div class="bsheet" id="bizSheet" role="dialog" aria-modal="true" aria-labelledby="bsName">
+  <div class="bsin">
+    <button class="bsx" id="bsX" aria-label="Close">✕</button>
+    <div style="display:flex;gap:16px;align-items:center">
+      <img id="bsLogo" alt="" style="width:72px;height:72px;border-radius:16px;object-fit:cover;border:1px solid var(--line)">
+      <div><div class="eyebrow" style="margin-bottom:4px">VNC Business</div><h3 id="bsName" style="font-size:36px"></h3></div>
+    </div>
+    <p id="bsDesc" style="color:var(--dim);margin:14px 0"></p>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><a class="btn gold sm" id="bsVisit" target="_blank" rel="noopener">Visit site ↗</a><span class="chip" id="bsStatus"></span></div>
+    <div class="gal" id="bsMedia" style="margin-top:22px"></div>
+  </div>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <button class="x" id="lbX" aria-label="Close">✕</button>
+  <button class="lbp" id="lbP" aria-label="Previous">‹</button>
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+  <div id="lbExtra"></div>
+  <button class="lbn" id="lbN" aria-label="Next">›</button>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Vincithe1 · Wake N Bake Entertainment · New Orleans</span>
+    <span>@vincithe1 everywhere</span>
+  </div>
+</footer>
+
+<script>
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+$('#yr').textContent = new Date().getFullYear();
+
+/* nav */
+$('#burger').onclick = () => $('#navlinks').classList.toggle('open');
+$$('#navlinks a').forEach(a => a.onclick = () => $('#navlinks').classList.remove('open'));
+
+/* ticker */
+const tk = ['Vincithe1','New Orleans','Wake N Bake Ent.','Book now','Design · Media · Music','Wake & Bake Clothing Co.','@vincithe1'];
+$('#tick').innerHTML = [...tk,...tk,...tk,...tk].map(t => `<span>${t}</span>✦`).join('');
+
+/* waveform */
+$('#wave').innerHTML = Array.from({length:42},(_,i)=>`<i style="height:${20+Math.abs(Math.sin(i*1.7))*80}%;animation-delay:${(i%7)*-.13}s"></i>`).join('');
+
+/* tracks */
+const C = n => `url(img/covers/${n}.jpg)`;
+const RELEASES = [
+  {t:'Say I Am', s:'Vincithe1 ft. Gemellus · prod. Knowledge', ty:'Single', c:'say-i-am'},
+  {t:'Hellpup', s:'Vincithe1 · prod. iLoveYourodman', ty:'Single', c:'hellpup'},
+  {t:'The Vinci Code: Reloaded', s:'Vincithe1', ty:'Album · 13 tracks', c:'vinci-code-reloaded',
+   tl:['Seen It (Acoustic)','Aladdin','Hate','Wipe His Nose ft. Gemellus','Eager ft. TL3','Green Thumbs','Another Band','2 Step ft. Fully Gudda, Ma$$ Da N.O. Vator','Antlers','Mad Dab ft. Gemellus, Prince Dre','Ricos ft. Toe-Up','Crazy','Real Love']},
+  {t:'Facecard', s:'Vincithe1 ft. Wambam Da Finessa', ty:'Single', c:'facecard'},
+  {t:'Norbit', s:'Vincithe1 · prod. Gunna Rob', ty:'Single', c:'norbit'},
+  {t:'Real Don', s:'Vincithe1', ty:'Single', c:'real-don'},
+  {t:'Rush Me', s:'Vincithe1 ft. KiddKidd', ty:'Single', c:'rush-me'},
+  {t:'High Maintenance', s:'Vincithe1 & ILL', ty:'Project', c:'high-maintenance'},
+  {t:'Tada', s:'Vincithe1 · prod. Bjso_ill', ty:'Single', c:'tada'},
+  {t:'V', s:'Vincithe1', ty:'Project', c:'v'},
+  {t:'Last Year', s:'Vincithe1 ft. Sigesco · prod. Cam Beemer', ty:'Single', c:'last-year'},
+  {t:'The ONE', s:'Vincithe1', ty:'EP', c:'the-one-ep'},
+  {t:'Roger', s:'Vincithe1', ty:'Single', c:'roger'},
+  {t:'Gone Win', s:'Vincithe1 · prod. Knowledge', ty:'Single', c:'gone-win'},
+  {t:'$plits', s:'Vincithe1 ft. G.ppls', ty:'Single', c:'splits'},
+  {t:'Veni, Vidi, Vici', s:'Vincithe1', ty:'Project', c:'veni-vidi-vici'},
+];
+const TRACKS = [
+  {t:'Wassup Wit It (GTA)', s:'Vincithe1 · prod. AudioHittaz', g:'linear-gradient(135deg,#38e07b,#0b3b1f)'},
+  ...RELEASES.slice(0,7).map(r=>({t:r.t, s:r.s, g:C(r.c)})),
+  {t:'Real Don (feat. Kuttagang Jblackk)', s:'Vincithe1, Kuttagang Jblackk', g:C('real-don')},
+];
+const spot = t => `https://open.spotify.com/search/${encodeURIComponent('Vincithe1 '+t.replace(/\(.*\)/,''))}`;
+$('#disco').innerHTML = RELEASES.map((r,i)=>`
+  <button class="rel reveal" data-i="${i}" type="button">
+    <img src="img/covers/${r.c}.jpg" alt="${esc(r.t)} cover art" loading="lazy">
+    <div><b>${esc(r.t)}</b><small>${esc(r.s)}</small><div class="ty">${esc(r.ty)}</div></div>
+  </button>`).join('');
+let cur = 0, playing = false;
+function renderTracks(){
+  $('#tracks').innerHTML = TRACKS.map((x,i)=>`
+    <div class="track ${i===cur?'active':''}" data-i="${i}">
+      <div class="art" style="background:${x.g};background-size:cover;background-position:center"></div>
+      <div><b>${esc(x.t)}</b><small>${esc(x.s)}</small></div>
+      <a class="btn sm" href="${spot(x.t)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Listen</a>
+    </div>`).join('');
+  $$('.track').forEach(el => el.onclick = () => { cur = +el.dataset.i; setNP(); renderTracks(); });
+}
+function setNP(){
+  $('#npTitle').textContent = TRACKS[cur].t;
+  $('#npSub').textContent = TRACKS[cur].s;
+}
+$('#heroPlay').onclick = () => {
+  playing = !playing;
+  $('#disc').classList.toggle('spin', playing);
+  $('#wave').classList.toggle('on', playing);
+  $('#heroPlay').textContent = playing ? '❚❚' : '▶';
+  $('#npState').textContent = playing ? 'Now spinning' : 'Featured track';
+};
+renderTracks();
+
+/* videos */
+const VIDS = [
+  {t:'Wassup Wit It (GTA)', s:'Official video', tag:'New', g:'linear-gradient(135deg,#0b3b1f,#38e07b 140%)'},
+  {t:'Real Don', s:'Visualizer', tag:'Music video', g:'linear-gradient(135deg,#3b2a05,#e3b341 150%)'},
+  {t:'Studio Sessions', s:'Vlog series', tag:'BTS', g:'linear-gradient(135deg,#1e1b4b,#8b5cf6 150%)'},
+];
+$('#videos').innerHTML = VIDS.map(v=>`
+  <a class="vcard reveal" href="https://www.youtube.com/@vincithe1" target="_blank" rel="noopener">
+    <div class="vthumb" style="background:${v.g}"><span class="chip tag" style="background:rgba(0,0,0,.5);color:#fff;border-color:transparent">${v.tag}</span><div class="pl">▶</div></div>
+    <div class="vmeta"><b>${esc(v.t)}</b><small>${esc(v.s)} · YouTube</small></div>
+  </a>`).join('');
+
+/* BTS */
+const BTS = [
+  {t:'In the booth', s:'Late-night sessions with AudioHittaz', g:'linear-gradient(200deg,#1d3b2a,#07080a)'},
+  {t:'Design desk', s:'Logos & brand kits in progress', g:'linear-gradient(200deg,#4a3305,#07080a)'},
+  {t:'On set', s:'Shooting videos & ads around the city', g:'linear-gradient(200deg,#2e1d5c,#07080a)'},
+  {t:'Merch lab', s:'Wake N Bake drops before they drop', g:'linear-gradient(200deg,#15803d,#07080a)'},
+];
+$('#btsgrid').innerHTML = BTS.map(b=>`<a class="b reveal" style="background:${b.g}" href="https://www.instagram.com/vincithe1" target="_blank" rel="noopener"><b>${b.t}<small>${b.s}</small></b></a>`).join('');
+
+/* portfolio */
+const eq = Array.from({length:14},(_,i)=>`<i style="height:${25+Math.abs(Math.sin(i*1.3))*75}%"></i>`).join('');
+const SVCS = [
+  {id:'Logos + brand kits', d:'Logo, colors, fonts & usage guide', v:`<div class="mk-logo">V1</div><div class="mk-swatch"><i style="background:#e3b341"></i><i style="background:#38e07b"></i><i style="background:#07080a;border:1px solid #333"></i><i style="background:#ecebe6"></i></div>`, bg:'#101418'},
+  {id:'Merch designs', d:'Tees, hoodies, hats, print-ready', v:`<div class="mk-tee"><span>WAKE<br>N BAKE</span></div>`, bg:'linear-gradient(160deg,#15803d,#0b3b1f)'},
+  {id:'Business cards + outreach media', d:'Cards, flyers, one-sheets, mailers', v:`<div class="mk-card"><b>YOUR BRAND</b><i></i><i style="width:45%"></i></div>`, bg:'#1a1a1c'},
+  {id:'Video / photo / graphic ads', d:'Social ads, reels, promo graphics', v:`<div class="mk-ad">Grand<br>opening<br><span style="color:#e3b341">sat.</span></div>`, bg:'linear-gradient(160deg,#2a1f4d,#0e1013)'},
+  {id:'Jingle productions', d:'Catchy audio branding for radio & social', v:`<div class="mk-eq">${eq}</div>`, bg:'linear-gradient(160deg,#3b2a05,#0e1013)'},
+  {id:'Commercials', d:'Scripted spots, from idea to final cut', v:`<div class="mk-film">TAKE 01</div>`, bg:'linear-gradient(160deg,#3b0d18,#0e1013)'},
+  {id:'Website & app production', builds:true, d:'Custom sites, stores, platforms & mobile-ready apps', v:`<div class="mk-web"><div class="mk-browser"><i></i><i></i><i></i><b>yourbrand.com</b><span></span><span style="width:60%"></span><span style="width:75%;background:var(--green)"></span></div><div class="mk-phone"><span></span><span style="width:70%"></span><span style="background:var(--gold)"></span></div></div>`, bg:'linear-gradient(160deg,#0b2a33,#0e1013)'},
+];
+const MORE = ['Album / single covers','Social media kits','Other'];
+$('#pgrid').innerHTML = SVCS.map((s,i)=>`
+  <div class="pc reveal" data-svc="${i}">
+    <div class="pv" style="background:${s.bg}">${s.v}</div>
+    <div class="pm"><b>${esc(s.id)}</b><small>${esc(s.d)}</small>${s.builds?`<button type="button" class="btn sm gold seebuilds" style="margin-top:10px">See our builds →</button>`:''}</div>
+  </div>`).join('');
+$('#svcChoices').innerHTML = [...SVCS.map(s=>s.id),...MORE].map((s,i)=>`<input type="checkbox" name="services" id="sv${i}" value="${esc(s)}"><label for="sv${i}">${esc(s)}</label>`).join('');
+$$('.seebuilds').forEach(b => b.onclick = e => { e.stopPropagation(); openVncTab('comm'); $('#vnc').scrollIntoView({behavior:'smooth'}); });
+$$('.pc').forEach(el => el.onclick = () => {
+  const box = $('#sv'+el.dataset.svc); box.checked = true;
+  $('#designForm').scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+/* shop */
+const ETSY = 'https://www.etsy.com/shop/WNBClothingCo';
+const PRODS = [
+  {t:'Morning Crew Tee', s:'Retro 90s coffee mug cartoon', u:'4615298581/wake-n-bake-morning-crew-shirt-retro-90s', cat:'new'},
+  {t:'Beignet Bakery Crew Tee', s:'French Quarter coffee & chicory', u:'4615298813/new-orleans-beignet-shirt-wake-n-bake', cat:'new'},
+  {t:'Retro 70s Sunset Tee', s:'Vintage stripe, Est. 2016 New Orleans', u:'4615299039/retro-70s-wake-n-bake-shirt-vintage', cat:'new'},
+  {t:'Neon Diner Tee', s:'Open 24/7 retro coffee sign', u:'4615299233/wake-n-bake-neon-diner-sign-shirt-open', cat:'new'},
+  {t:'Rise & Shine Tee', s:'Vintage cartoon alarm clock', u:'4615311802/rise-and-shine-shirt-vintage-cartoon', cat:'new'},
+  {t:"Kickin' Bowls Tee", s:'YAGA · New Orleans', img:'wnb/yaga.jpg', p:'$28.99', u:'4587857930/funny-stoner-soccer-t-shirt-new-orleans', cat:'tee'},
+  {t:'Breakfast of Champions Tee', s:'Hundred dollar bill & fork', img:'wnb/fork.jpg', p:'$28.99', u:'4587886783/wake-n-bake-shirt-funny-stoner-tee', cat:'tee'},
+  {t:'Iced Out Tee', s:'Chains & cash streetwear', img:'wnb/iced.jpg', p:'$28.99', u:'4587886893/iced-out-chains-and-cash-tee-hip-hop', cat:'tee'},
+  {t:'Rep the Crew Tee', s:'WNB watercolor letters', img:'wnb/watercolor.jpg', p:'$28.99', u:'4587892752/black-comfort-colors-tee-new-orleans', cat:'tee'},
+  {t:'Cemetery Crewneck', s:"It's Halloween all year round", img:'shop/crew-cemetery.jpg', p:'$52.99', u:'4588193211/new-orleans-crewneck-sweatshirt', cat:'crew'},
+  {t:"Kickin' Bowls Crewneck", s:'YAGA · New Orleans', img:'shop/crew-yaga.jpg', p:'$52.99', u:'4588199490/crewneck-sweatshirt-funny-stoner-soccer', cat:'crew'},
+  {t:'Watercolor Crewneck', s:'WNB splash logo', img:'shop/crew-watercolor.jpg', p:'$52.99', u:'4588199530/crewneck-sweatshirt-watercolor-splash', cat:'crew'},
+  {t:'Second Line Crewneck', s:'Skeleton trumpet, blood moon', img:'shop/crew-skeleton.jpg', p:'$52.99', u:'4588194219/new-orleans-halloween-crewneck', cat:'crew'},
+  {t:'Ghost Coffee Tee', s:'Wake & bake coffee ghost', img:'wnb/ghost.jpg', p:'$28.99', u:'4587992252/halloween-ghost-shirt-wake-n-bake-coffee', cat:'hw'},
+  {t:'Pumpkin Breakfast Tee', s:'Jack-o-lantern waffle plate', img:'wnb/pumpkin.jpg', p:'$28.99', u:'4587992762/halloween-pumpkin-tee-jack-o-lantern', cat:'hw'},
+  {t:'Trick or Treat Bag Tee', s:'WNB candy bag', img:'wnb/bag.jpg', p:'$28.99', u:'4587992672/halloween-trick-or-treat-tee-stoner', cat:'hw'},
+  {t:'Second Line Skeleton Tee', s:'New Orleans jazz trumpet', img:'wnb/skeleton.jpg', p:'$28.99', u:'4587992834/halloween-skeleton-shirt-new-orleans', cat:'hw'},
+  {t:'NOLA Cemetery Tee', s:"It's Halloween all year round", img:'shop/cemetery.jpg', p:'$28.99', u:'4588173898/new-orleans-halloween-tee-nola-cemetery', cat:'hw'},
+  {t:'Horror Comic Tee', s:'Monster buds chase NOLA street', img:'shop/comic.jpg', p:'$28.99', u:'4588169251/halloween-horror-comic-tee-funny-stoner', cat:'hw'},
+  {t:'Haunted Mirror Tee', s:'Printed mirrored for selfies', img:'shop/mirror.jpg', p:'$28.99', u:'4588168907/halloween-stoner-tee-mirror-selfie-shirt', cat:'hw'},
+  {t:'Witches & Black Cat Tee', s:'Happy Halloween from Wake N Bake Co', img:'shop/crayon.jpg', p:'$28.99', u:'4588174030/funny-halloween-shirt-dark-humor', cat:'hw'},
+];
+const SHOPCATS = [['all','All'],['new','New drops'],['tee','Tees'],['crew','Crewnecks'],['hw','Halloween']];
+let shopCat = 'all';
+function prodHTML(p){
+  const vis = p.img ? `<img src="img/${p.img}" alt="${esc(p.t)} design" loading="lazy" style="width:100%;height:100%;object-fit:contain">`
+    : `<div class="newart"><span class="chip" style="color:var(--green);border-color:var(--green)">New drop</span><b>${esc(p.t.replace(/ Tee$/,''))}</b><small>Wake N Bake Clothing Co.</small></div>`;
+  return `<div class="prod reveal in">
+    <div class="pv">${vis}</div>
+    <div class="pm"><b>${esc(p.t)}</b><small>${esc(p.s)}${p.p?` · <span style="color:var(--gold)">${p.p}</span>`:''}${p.cat!=='new'?' · free US shipping':''}</small><a class="btn sm gold" href="https://www.etsy.com/listing/${p.u}" target="_blank" rel="noopener">${p.cat==='new'?'See it on Etsy':'Buy on Etsy'}</a></div>
+  </div>`;
+}
+function renderShop(){
+  $('#shopTabs').innerHTML = SHOPCATS.map(([k,l]) => `<button class="${k===shopCat?'on':''}" data-c="${k}">${l} (${k==='all'?PRODS.length:PRODS.filter(p=>p.cat===k).length})</button>`).join('');
+  $$('#shopTabs button').forEach(b => b.onclick = () => { shopCat = b.dataset.c; renderShop(); });
+  $('#shopgrid').innerHTML = PRODS.filter(p => shopCat==='all' || p.cat===shopCat).map(prodHTML).join('');
+}
+renderShop();
+
+/* socials */
+const SOC = [
+  ['Instagram','https://www.instagram.com/vincithe1'],
+  ['TikTok','https://www.tiktok.com/@vincithe1'],
+  ['YouTube','https://www.youtube.com/@vincithe1'],
+  ['X','https://x.com/vincithe1'],
+  ['Threads','https://www.threads.net/@vincithe1'],
+  ['Facebook','https://www.facebook.com/vincithe1'],
+];
+$('#socials').innerHTML = SOC.map(([n,u])=>`<a class="soc" href="${u}" target="_blank" rel="noopener"><b>${n}</b><span>@vincithe1 ↗</span></a>`).join('')
+  + `<a class="soc" href="https://www.instagram.com/wakenbakeco16" target="_blank" rel="noopener"><b>Wake N Bake Clothing</b><span>@wakenbakeco16 ↗</span></a>`;
+
+/* streaming players: switch on when hosted on its own domain */
+const LIVE_SITE = /^https?:$/.test(location.protocol) && !/(^|\.)(claude\.ai|claudeusercontent\.com|anthropic\.com)$/.test(location.hostname) && location.hostname !== 'localhost';
+if (LIVE_SITE) $('#playersLive').hidden = false;
+
+/* instagram grid */
+$('#iggrid').innerHTML = ['img/v1-03.jpg','img/wnb-07.jpg','img/v1-06.jpg','img/v1-02.jpg','img/wnb-03.jpg','img/v1-05.jpg','img/v1-11.jpg','img/wnb-02.jpg','img/v1-08.jpg']
+  .map(src => `<a href="https://www.instagram.com/vincithe1" target="_blank" rel="noopener" aria-label="View on Instagram"><img src="${src}" alt="Vincithe1 on Instagram" loading="lazy"></a>`).join('');
+
+/* booking: consultation fields */
+$$('input[name="type"]').forEach(r => r.addEventListener('change', () => {
+  const c = $('#bt5').checked;
+  $('#consultFields').hidden = !c;
+  $('#consultFields').querySelectorAll('select').forEach(x => x.disabled = !c);
+  $('#bookDetails').placeholder = c ? 'Your business, where you are now, and what you want help with…' : 'Set length, expected crowd, travel, the track you want a feature on…';
+}));
+$('#consultFields').querySelectorAll('select').forEach(x => x.disabled = true);
+
+/* VNC Labs tabs */
+$$('#vncTabs button').forEach(b => b.onclick = () => {
+  $$('#vncTabs button').forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-selected', x === b); });
+  $$('.vpane').forEach(p => p.hidden = p.dataset.pane !== b.dataset.tab);
+});
+const openVncTab = t => { const b = $(`#vncTabs [data-tab="${t}"]`); if (b) b.click(); };
+document.querySelector('a[href="#designForm"]')?.addEventListener('click', () => openVncTab('studio'));
+
+/* cubes */
+const BIZ = [
+  {n:'ShiftVault', d:'Gig & staffing platform', url:'https://shiftvault.us', logo:'shiftvault.png', media:['shiftvault',13], about:'Staffing and gig platform connecting workers with shifts in hospitality, food service, events, warehouse, retail, janitorial and admin.'},
+  {n:'KreweLive', d:'Hub for New Orleans streamers', url:'https://krewelive-web-production.up.railway.app', logo:'krewelive.jpg'},
+  {n:'VNC Dispatch', d:'Medical courier platform', url:'https://vnc-dispatch-production.up.railway.app', logo:'dispatch.jpg', media:['dispatch',1]},
+  {n:'SoundoVault', d:'Music platform', url:'https://soundovault-app-production.up.railway.app', logo:'soundovault.jpg', media:['soundovault',2]},
+  {n:'FashionVault', d:'Fashion platform', url:'https://fashionvault-app-production.up.railway.app', logo:'fashionvault.png', media:['fashionvault',4]},
+  {n:'SolarVault', d:'Solar platform', url:'https://solarvault-landing-production.up.railway.app', logo:'solarvault.jpg'},
+  {n:'VNC Radio', d:'Radio & streaming station', url:'https://vnc-radio-app-production.up.railway.app', logo:'radio.jpg', media:['radio',1]},
+  {n:'VNC Realty & Investments', d:'Real estate investing', url:'https://vncrealtyinvestments.com', logo:'realty.jpg'},
+  {n:'When the Block Starts Talking', d:'Book + AI series', url:'#wtbst', logo:'wtbst.jpg', status:'Read more'},
+  {n:"Don't Laugh Media", d:'Production company: video, photo, animation, jingles', url:'https://www.instagram.com/dontlaughmedia', logo:'dontlaugh.jpg'},
+  {n:'Wake N Bake Digital', d:'Local-business growth agency', logo:'wnbdigital.jpg', status:'Site coming soon', media:['wnbdigital',2]},
+  {n:'DaLandingPoint Labs', d:'FiveM scripts & 3D props', logo:'dalandingpoint.jpg', status:'Site coming soon'},
+  {n:'VNC Financial Services', d:'Credit repair & tax prep software', logo:'vncfinancial.jpg', status:'Site coming soon'},
+  {n:'Fiverr Studio', d:'Freelance creative services', logo:'fiverr.jpg', status:'Site coming soon'},
+  {n:'Guardian Trading Desk', d:'Paper trading desk', logo:'guardian.jpg', status:'Private'},
+];
+const COMM = [
+  {n:'TokyoYoungin', d:'Full site for New Orleans blogger TokyoYoungin: live streams, videos, donations, paid subscriptions, merch and the Detective Tokyo game.', url:'https://tokyoyoungin.com', logo:'tokyo.png', fit:true, big:true, side:'tokyo-cover.jpg'},
+  {n:'Social Experiment', d:'Commissioned promotional advertisement: an invite-only party reel for the SE Private Party, in claymation and live-action cuts.', url:'#se-promo', logo:'se-logo.jpg', big:true, side:'se-flyer.jpg', status:'Watch the ad ↓'},
+];
+function faceHTML(x){
+  const inner = x.logo ? `<img src="img/logos/${x.logo}" alt="">` : `<b style="color:${x.c};font-size:${x.small||x.mono.length>3?'17px':x.mono.length>2?'22px':'30px'}">${esc(x.mono)}</b>`;
+  const cls = x.fit ? 'f fit' : 'f';
+  return [1,2,3,4,5,6].map(i => {
+    if (x.side && (i===2||i===4)) return `<div class="f f${i}"><img src="img/logos/${x.side}" alt=""></div>`;
+    return `<div class="${cls} f${i}" style="${x.fit?'background:#fff':''}">${inner}</div>`;
+  }).join('');
+}
+function cubeHTML(x){
+  if (x.media) return `<button type="button" class="cubecard reveal" data-biz="${esc(x.n)}" aria-label="${esc(x.n)}: see media">
+    <div class="scene"><div class="cube">${faceHTML(x)}</div></div>
+    <div style="display:flex;flex-direction:column;gap:6px;align-items:center"><b class="nm">${esc(x.n)}</b><small>${esc(x.d)}</small><span class="chip live">Media · ${x.media[1]} ${x.media[1]>1?'files':'file'}</span></div>
+  </button>`;
+  const link = x.url || x.href;
+  const ext = x.url && x.url.startsWith('http');
+  const chip = x.url ? `<span class="chip live">${x.status || 'Visit ↗'}</span>` : `<span class="chip">${esc(x.status||'')}</span>`;
+  const tag = link ? 'a' : 'div';
+  const attrs = link ? `href="${link}"${ext?' target="_blank" rel="noopener"':''}` : '';
+  return `<${tag} class="cubecard reveal${x.big?' big':''}" ${attrs} aria-label="${esc(x.n)}">
+    <div class="scene"><div class="cube">${faceHTML(x)}</div></div>
+    <div style="display:flex;flex-direction:column;gap:6px;${x.big?'':'align-items:center'}"><b class="nm">${esc(x.n)}</b><small>${esc(x.d)}</small>${chip}</div>
+  </${tag}>`;
+}
+$('#bizCubes').innerHTML = BIZ.map(cubeHTML).join('');
+function openBiz(name){
+  const x = BIZ.find(b => b.n === name); if (!x) return;
+  const key = 'biz-' + x.media[0];
+  GALS[key] = Array.from({length:x.media[1]}, (_,i) => [`img/biz/${x.media[0]}-${String(i+1).padStart(2,'0')}.jpg`, x.n]);
+  $('#bsLogo').src = 'img/logos/' + x.logo;
+  $('#bsName').textContent = x.n; $('#bsDesc').textContent = x.about || x.d;
+  $('#bsVisit').hidden = !x.url; if (x.url) $('#bsVisit').href = x.url;
+  $('#bsStatus').textContent = x.url ? '' : (x.status || '');
+  $('#bsMedia').innerHTML = GALS[key].map(([src],i) => `<figure data-g="${key}" data-i="${i}"><img src="${src}" alt="${esc(x.n)} media ${i+1}" loading="lazy"></figure>`).join('');
+  $$('#bsMedia figure').forEach(f => f.onclick = () => { lbG = f.dataset.g; lbI = +f.dataset.i; lbShow(); $('#lb').classList.add('open'); });
+  $('#bizSheet').classList.add('open'); document.body.style.overflow = 'hidden';
+}
+const closeBiz = () => { $('#bizSheet').classList.remove('open'); document.body.style.overflow = ''; };
+$$('[data-biz]').forEach(b => b.onclick = () => openBiz(b.dataset.biz));
+$('#bsX').onclick = closeBiz;
+$('#bizSheet').onclick = e => { if (e.target.id === 'bizSheet') closeBiz(); };
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#lb').classList.contains('open')) closeBiz(); });
+window.addEventListener('hashchange', closeBiz);
+$('#commCubes').innerHTML = COMM.map(cubeHTML).join('');
+/* promo cut switch */
+$$('#se-promo .seg button').forEach(b => b.onclick = () => {
+  const v = $('#seVid'), c = b.dataset.cut;
+  $$('#se-promo .seg button').forEach(x => x.classList.toggle('on', x === b));
+  v.pause(); v.src = `img/vid/se-promo-${c}.mp4`; v.poster = `img/vid/se-promo-${c}.jpg`; v.load();
+});
+
+$('#buildCubes').innerHTML = ['ShiftVault','KreweLive','VNC Realty & Investments','VNC Radio','SoundoVault','FashionVault','VNC Dispatch','SolarVault']
+  .map(n => { const x = BIZ.find(b => b.n === n); return x ? cubeHTML({...x, media:null}) : ''; }).join('');
+
+/* galleries */
+const WGAL = [
+  ['img/wnb-01.jpg','Original Wake & Bake breakfast-plate tees, fresh out the bag'],
+  ['img/wnb-02.jpg','Wake & Bake plate tee + WNB rainbow tee, live at the show'],
+  ['img/wnb-03.jpg','Wake & Bake plate tee in heather grey'],
+  ['img/wnb-04.jpg','Wake N Bake Inc. circle-logo tee'],
+  ['img/wnb-05.jpg','Wake N Bake hoodie on the block'],
+  ['img/wnb-06.jpg','Wake & Bake plate tee in sky blue'],
+  ['img/wnb-07.jpg','Wake & Bake × Vincithe1 hoodie in gold'],
+  ['img/wnb-08.jpg','Wake & Bake patch tee and dad hat'],
+  ['img/wnb-09.jpg','The WNB 4:20AM tee, sold on Canal Street (2017)'],
+  ['img/wnb-10.jpg','Wake & Bake Vincithe1 hoodie behind the counter (2017)'],
+  ['img/wnb-11.jpg','Wake & Bake Vincithe1 hoodie in grey (2018)'],
+  ['img/wnb-12.jpg','Wake & Bake dad hat'],
+  ['img/wnb-13.jpg','Wake & Bake dad hats on FaceTime'],
+  ['img/wnb-14.jpg','WNB Wake N Bake Clothing tee on the road'],
+  ['img/wnb-15.jpg','/wāk·ənd·bāk/ tee and the Wake & Bake breakfast-plate tee'],
+  ['img/wnb-16.jpg','The breakfast-plate tee and the definition tee, shoot day'],
+  ['img/wnb-17.jpg','Shoot day at the container'],
+  ['img/wnb-18.jpg','The definition tee, black and white'],
+  ['img/wnb-19.jpg','Wake & Bake breakfast-plate tee under the lights'],
+  ['img/wnb-20.jpg','WNB graffiti-letter tees in white and royal blue'],
+  ['img/wnb-21.jpg','Breakfast-plate tee on the video set'],
+  ['img/wnb-22.jpg','Breakfast-plate tee with the crew'],
+  ['img/wnb-23.jpg','The iced-out WNB pendant'],
+  ['img/wnb-24.jpg','Wake & Bake patch tee under a yellow jacket'],
+  ['img/wnb-25.jpg','Wake & Bake Vincithe1 hoodie, black and gold'],
+  ['img/wnb-26.jpg','Black and gold Wake & Bake hoodie with the crew'],
+  ['img/wnb-27.jpg','Wake N Bake Inc tee in the booth'],
+  ['img/wnb-28.jpg','Wake N Bake Inc tee at the mic'],
+  ['img/wnb-29.jpg','Wake N Bake Inc tee in the studio'],
+  ['img/wnb-30.jpg','Breakfast-plate tees in black and royal blue'],
+  ['img/wnb-31.jpg','Repping the breakfast-plate print'],
+  ['img/wnb-32.jpg','WNB ink: the wrist'],
+  ['img/wnb-33.jpg','WNB ink: the Wake & Bake plate tattoo'],
+  ['img/wnb-34.jpg','WNB ink: the hand'],
+  ['img/wnb-35.jpg','WNB ink: the fam got it too'],
+  ['img/wnb-36.jpg','WNB ink: forever on the face'],
+];
+const VGAL = Array.from({length:28},(_,i)=>[`img/v1-${String(i+1).padStart(2,'0')}.jpg`,'Vincithe1']);
+const GALS = {w:WGAL, v:VGAL, d:RELEASES.map(r=>[`img/covers/${r.c}.jpg`,`${r.t} — ${r.s}`])};
+function renderGal(el, key){
+  el.innerHTML = GALS[key].map(([src,cap],i)=>`<figure data-g="${key}" data-i="${i}"><img src="${src}" alt="${esc(cap)}" loading="lazy">${key==='w'?`<figcaption>${esc(cap)}</figcaption>`:''}</figure>`).join('');
+}
+renderGal($('#wGal'),'w'); renderGal($('#vGal'),'v');
+let lbG='v', lbI=0;
+function lbShow(){ const [s,c]=GALS[lbG][lbI]; $('#lbImg').src=s; $('#lbImg').alt=c; $('#lbCap').textContent = lbG==='v'?`${lbI+1} / ${GALS[lbG].length}`:c;
+  const ex=$('#lbExtra'); if(ex){ const r=lbG==='d'?RELEASES[lbI]:null;
+    ex.innerHTML = r ? `${r.tl?`<div class="tl">${r.tl.map((t,i)=>`${i+1}. ${esc(t)}`).join('<br>')}</div>`:''}<div class="lbl"><a class="btn sm gold" href="${spot(r.t)}" target="_blank" rel="noopener">Spotify</a><a class="btn sm" href="https://music.apple.com/us/search?term=${encodeURIComponent('Vincithe1 '+r.t)}" target="_blank" rel="noopener">Apple Music</a><a class="btn sm" href="https://www.youtube.com/@vincithe1" target="_blank" rel="noopener">YouTube</a></div>` : ''; } }
+function lbMove(d){ const n=GALS[lbG].length; lbI=(lbI+d+n)%n; lbShow(); }
+$$('#disco .rel').forEach(b=>b.onclick=()=>{ lbG='d'; lbI=+b.dataset.i; lbShow(); $('#lb').classList.add('open'); });
+GALS.p=[['img/press/nyt-katrina.jpg','The New York Times: "Life After the Storm: Children Who Survived Katrina Offer Lessons"'],['img/press/wheres-the-wave.jpg','Where\'s The Wave: "I Need It" by Vinci, Yung Mel and Gemellus']];
+$$('.press figure').forEach((f,i)=>f.onclick=()=>{ lbG='p'; lbI=i; lbShow(); $('#lb').classList.add('open'); });
+$$('.gal figure').forEach(f=>f.onclick=()=>{ lbG=f.dataset.g; lbI=+f.dataset.i; lbShow(); $('#lb').classList.add('open'); });
+$('#lbX').onclick=()=>$('#lb').classList.remove('open');
+$('#lbP').onclick=e=>{e.stopPropagation();lbMove(-1)}; $('#lbN').onclick=e=>{e.stopPropagation();lbMove(1)};
+$('#lb').onclick=e=>{ if(e.target.id==='lb') $('#lb').classList.remove('open'); };
+document.addEventListener('keydown',e=>{ if(!$('#lb').classList.contains('open'))return; if(e.key==='Escape')$('#lb').classList.remove('open'); if(e.key==='ArrowLeft')lbMove(-1); if(e.key==='ArrowRight')lbMove(1); });
+let tx=0; $('#lb').addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+$('#lb').addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx; if(Math.abs(d)>50) lbMove(d<0?1:-1);});
+
+/* ---------- standalone pages (hash router) ---------- */
+$('#contact').after($('#subscribe'));
+const PAGES = {home:['top','tickerWrap','igfeed','explore'], music:['music','bts'], gallery:['gallery'], epk:['epk'], wtbst:['wtbst'], vnc:['vnc'], book:['book'], shop:['shop'], contact:['contact','subscribe'], inbox:['inbox']};
+const ALL = Object.values(PAGES).flat();
+const pageOf = id => { for (const [p, ids] of Object.entries(PAGES)) if (ids.includes(id)) return p; return null; };
+let curPage = null;
+function route(){
+  const h = decodeURIComponent(location.hash.slice(1));
+  let page = PAGES[h] ? h : (h === 'top' ? 'home' : null), target = null;
+  if (!page && h) {
+    const el = document.getElementById(h);
+    const sec = el && el.closest('section, header, #tickerWrap');
+    if (sec && pageOf(sec.id)) { page = pageOf(sec.id); target = el; }
+  }
+  if (!page) page = 'home';
+  if (page === 'inbox' && !$('#inbox').classList.contains('show')) page = 'home';
+  ALL.forEach(id => { const el = document.getElementById(id); if (el) { el.hidden = !PAGES[page].includes(id); el.classList.remove('pagetop'); } });
+  const first = document.getElementById(PAGES[page][0]); if (first && page !== 'home') first.classList.add('pagetop');
+  $$('#navlinks a').forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + page));
+  if (target && target !== first) {
+    if (target.closest('.vpane')?.hidden) openVncTab(target.closest('.vpane').dataset.pane);
+    requestAnimationFrame(() => target.scrollIntoView({behavior: page === curPage ? 'smooth' : 'instant', block:'start'}));
+  } else if (page !== curPage || !target) window.scrollTo({top:0, behavior:'instant'});
+  curPage = page;
+}
+window.addEventListener('hashchange', route);
+route();
+
+/* reveal */
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:.12});
+$$('.reveal').forEach(el => io.observe(el));
+
+/* EPK copy */
+$('#copyEpk').onclick = async () => {
+  const bioTxt = [...$('#bio').children].map(e => e.tagName === 'H3' ? '\n' + e.textContent.toUpperCase() : e.textContent.replace(/\s+/g, ' ').trim()).join('\n');
+  const hlTxt = [...$$('.hl li')].map(li => '- ' + li.querySelector('b').textContent + ': ' + li.querySelector('span').textContent).join('\n');
+  const txt = `VINCITHE1 — ELECTRONIC PRESS KIT\nCraig "Vinci" Jones · New Orleans, LA\n\n${bioTxt}\n\nHIGHLIGHTS\n${hlTxt}\n\nPRESS\n- The New York Times: Life After the Storm: Children Who Survived Katrina Offer Lessons (Sept. 8, 2017) https://nyti.ms/2eTvWYk\n- Where's The Wave: "I Need It" with Yung Mel and Gemellus\n\nLabel: Wake N Bake Entertainment\nDistribution: UnitedMasters\nSpotify: https://open.spotify.com/artist/5gmB6piRaZGQ5LRiwyK731\nApple Music: https://music.apple.com/us/artist/vincithe1/1332519973\nYouTube / Instagram / TikTok: @vincithe1\nBookings: use the Book Me page on the site`;
+  const n = $('#epkNote');
+  try { await navigator.clipboard.writeText(txt); n.className='note ok'; n.textContent='EPK copied. Paste it into an email or DM.'; }
+  catch { n.className='note fb'; n.innerHTML='Copy it from here:<textarea readonly>'+esc(txt)+'</textarea>'; }
+};
+
+/* ---------- Data layer ---------- */
+let db = null, user = null, uid = null, isOwner = false;
+const API_LIVE = /^https?:$/.test(location.protocol) && !/(^|\.)(claude\.ai|claudeusercontent\.com|anthropic\.com)$/.test(location.hostname);
+function renderFeatured(docs){
+  docs.sort((a,b) => (b.at||'').localeCompare(a.at||''));
+  $('#featured').innerHTML = docs.length
+    ? docs.map(d => `<div class="fan"><img src="${esc(d.photo)}" alt="Fan wearing ${esc(d.piece||'Wake N Bake')}"><small>${esc(d.name)}${d.piece?' · '+esc(d.piece):''}</small></div>`).join('')
+    : `<div class="empty" style="grid-column:1/-1">The first featured fits drop here. Submit yours. 👀</div>`;
+}
+if (API_LIVE) fetch('/api/featured').then(r => r.ok ? r.json() : []).then(renderFeatured).catch(() => {});
+const ready = (async () => {
+  try {
+    if (!window.claude?.use) return;
+    [db, user] = await Promise.all([claude.use('db'), claude.use('user')]);
+    if (user) { isOwner = !!(user.isOwner && user.isOwner()); try { uid = await user.id(); } catch {} }
+    if (db) watchFeatured();
+    if (db && isOwner) openInbox();
+  } catch(e) { db = null; }
+})();
+
+/* fan photo */
+let fanImg = null;
+$('#fanFile').onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  const img = new Image(), url = URL.createObjectURL(f);
+  img.onload = () => {
+    const max = 720, k = Math.min(1, max / Math.max(img.width, img.height));
+    const c = document.createElement('canvas'); c.width = Math.round(img.width*k); c.height = Math.round(img.height*k);
+    c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+    fanImg = c.toDataURL('image/jpeg', .7);
+    $('#drop').innerHTML = `<img src="${fanImg}" alt="Your photo"><span>Tap to change photo</span>`;
+    URL.revokeObjectURL(url);
+  };
+  img.src = url;
+};
+
+function summarize(kind, data){
+  return `${kind.toUpperCase()}\n` + Object.entries(data).filter(([k,v]) => v && k!=='photo').map(([k,v]) => `${k[0].toUpperCase()+k.slice(1)}: ${Array.isArray(v)?v.join(', '):v}`).join('\n');
+}
+
+$$('form[data-kind]').forEach(form => form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const kind = form.dataset.kind, note = form.querySelector('.note'), btn = form.querySelector('button[type=submit]');
+  const fd = new FormData(form), data = {};
+  for (const [k,v] of fd.entries()) { if (data[k]) data[k] = [].concat(data[k], v); else data[k] = v; }
+  if (form.id === 'fanForm') {
+    if (!fanImg) { note.className='note fb'; note.textContent='Choose a photo first.'; return; }
+    data.photo = fanImg;
+  }
+  if (kind.startsWith('Design') && !data.services) { note.className='note fb'; note.textContent='Pick at least one service.'; return; }
+  btn.disabled = true; const old = btn.textContent; btn.textContent = 'Sending…';
+  await Promise.race([ready, new Promise(r => setTimeout(r, 4000))]);
+  let saved = false;
+  if (API_LIVE) {
+    try {
+      const r = await fetch('/api/submit', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ kind, ...data })});
+      saved = r.ok;
+    } catch { saved = false; }
+  } else if (db && uid) {
+    try {
+      const ref = db.doc('inbox/' + uid);
+      const snap = await ref.get();
+      const entries = (snap && snap.exists !== false && snap.data && snap.data()?.entries) || [];
+      entries.push({ kind, at: new Date().toISOString(), ...data });
+      await ref.set({ entries });
+      saved = true;
+    } catch (err) { saved = false; }
+  }
+  btn.disabled = false; btn.textContent = old;
+  if (saved) {
+    note.className = 'note ok';
+    note.textContent = kind === 'Subscriber' ? "You're on the list. Watch for the next drop. 🔥" : "Got it. Your request went straight to Vinci's inbox; expect a reply soon.";
+    form.reset(); if (form.id==='fanForm'){ fanImg=null; $('#drop').innerHTML='<span>📸 Tap to choose a photo</span>'; }
+  } else {
+    const msg = summarize(kind, data);
+    note.className = 'note fb';
+    note.innerHTML = `This page couldn't send it automatically. Copy your message and DM it to <b>@vincithe1</b> on Instagram:<textarea readonly>${esc(msg)}</textarea>
+      <div class="acts"><button type="button" class="btn sm gold" data-copy>Copy message</button><a class="btn sm" href="https://ig.me/m/vincithe1" target="_blank" rel="noopener">Open Instagram DM</a></div>`;
+    note.querySelector('[data-copy]').onclick = async ev => {
+      try { await navigator.clipboard.writeText(msg); ev.target.textContent = 'Copied ✓'; } catch { note.querySelector('textarea').select(); }
+    };
+  }
+}));
+
+/* featured gallery (public) */
+function watchFeatured(){
+  try {
+    db.collection('featured').onSnapshot(qs => {
+      const docs = []; qs.forEach(d => docs.push(d.data()));
+      renderFeatured(docs);
+    }, () => {});
+  } catch {}
+}
+
+/* owner inbox */
+let ibAll = [], ibTab = 'All';
+function openInbox(){
+  $('#inbox').classList.add('show');
+  if (!$('#navInbox')) { const li = document.createElement('li'); li.innerHTML = '<a href="#inbox" id="navInbox" style="color:var(--gold)">Inbox</a>'; $('#navlinks').appendChild(li); li.firstChild.onclick = () => $('#navlinks').classList.remove('open'); }
+  route();
+  $('#ibList').innerHTML = '<div class="empty">Loading…</div>';
+  const t = setTimeout(() => { if (!ibAll.length) $('#ibList').innerHTML = '<div class="empty">No submissions yet. Bookings, quotes, photos and subscribers will show up here.</div>'; }, 10000);
+  try {
+    db.collection('inbox').onSnapshot(qs => {
+      clearTimeout(t); ibAll = [];
+      qs.forEach(d => (d.data().entries || []).forEach((en, i) => ibAll.push({ ...en, _doc: d.id, _i: i })));
+      ibAll.sort((a,b) => (b.at||'').localeCompare(a.at||''));
+      renderInbox();
+    }, () => { clearTimeout(t); $('#ibList').innerHTML = '<div class="empty">Inbox unavailable right now.</div>'; });
+  } catch {}
+}
+function renderInbox(){
+  const kinds = ['All', ...new Set(ibAll.map(e => e.kind))];
+  $('#ibTabs').innerHTML = kinds.map(k => `<button class="${k===ibTab?'on':''}" data-k="${esc(k)}">${esc(k)} (${k==='All'?ibAll.length:ibAll.filter(e=>e.kind===k).length})</button>`).join('');
+  $$('#ibTabs button').forEach(b => b.onclick = () => { ibTab = b.dataset.k; renderInbox(); });
+  const list = ibAll.filter(e => ibTab==='All' || e.kind===ibTab);
+  if (!list.length) { $('#ibList').innerHTML = '<div class="empty">No submissions yet. Bookings, quotes, photos and subscribers will show up here.</div>'; return; }
+  $('#ibList').innerHTML = list.map((e, n) => `
+    <div class="ibi">
+      <header><span class="chip" style="color:var(--gold);border-color:var(--gold)">${esc(e.kind)}</span><small style="color:var(--dim)">${new Date(e.at).toLocaleString()}</small></header>
+      <pre>${esc(summarize('', e).replace(/^\n/,'').replace(/^(At|_doc|_i|Kind):.*$/gm,'').trim())}</pre>
+      ${e.photo ? `<img src="${esc(e.photo)}" alt=""><div style="margin-top:10px"><button class="btn sm green" data-feat="${n}">Feature on site</button></div>` : ''}
+    </div>`).join('');
+  $$('[data-feat]').forEach(b => b.onclick = async () => {
+    const e = list[+b.dataset.feat];
+    try {
+      await db.doc('featured/' + e._doc + '_' + e._i).set({ name: e.name || 'Fan', piece: e.piece || '', photo: e.photo, at: e.at });
+      b.textContent = 'Featured ✓'; b.disabled = true;
+    } catch { b.textContent = "Couldn't feature, try again"; }
+  });
+}
+</script>
+</body>
+</html>

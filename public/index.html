@@ -505,7 +505,7 @@ input,select,textarea{background:rgba(7,8,10,.55)}
       <a class="tile" href="#music" style="--c:#38e07b"><small>01</small><b>Music &amp; Videos</b><span>Stream the catalog</span></a>
       <a class="tile" href="#gallery" style="--c:#e3b341"><small>02</small><b>Gallery</b><span>Shoots around the city</span></a>
       <a class="tile" href="#wtbst" style="--c:#e3b341"><small>03</small><b>When the Block Starts Talking</b><span>The book + AI series</span></a>
-      <a class="tile" href="#vnc" style="--c:#8b5cf6"><small>04</small><b>VNC Labs</b><span>Studio, businesses, commissions</span></a>
+      <a class="tile" href="#vnc" style="--c:#8b5cf6"><small>04</small><b>VNC Labs</b><span>Studio, businesses, commissions, games</span></a>
       <a class="tile" href="#shop" style="--c:#38e07b"><small>05</small><b>Shop Wake N Bake</b><span>Tees, hoodies, fan fits</span></a>
       <a class="tile" href="#book" style="--c:#f43f5e"><small>06</small><b>Book Me</b><span>Shows, features, walk-thrus, consultations</span></a>
       <a class="tile" href="#epk" style="--c:#60a5fa"><small>07</small><b>EPK</b><span>Bio &amp; press kit</span></a>
@@ -756,6 +756,14 @@ input,select,textarea{background:rgba(7,8,10,.55)}
       <button class="on" data-tab="studio" role="tab">Creative Studio</button>
       <button data-tab="biz" role="tab">VNC Businesses</button>
       <button data-tab="comm" role="tab">VNC Commissions</button>
+      <button data-tab="games" role="tab">Games</button>
+    </div>
+
+    <!-- GAMES -->
+    <div class="vpane" data-pane="games" hidden>
+      <h3 style="font-size:clamp(34px,6vw,56px)">VNC <span style="color:var(--gold)">Games</span></h3>
+      <p style="color:var(--dim);margin:8px 0 6px;max-width:620px">Games designed and built by VNC Labs, playable right in your browser. Tap one to play.</p>
+      <div class="cubes" id="gameCubes"></div>
     </div>
 
     <!-- VNC BUSINESSES -->
@@ -1180,6 +1188,7 @@ const BIZ = [
   {n:'SoundoVault', d:'Music platform', url:'https://soundovault-app-production.up.railway.app', logo:'soundovault.jpg', media:['soundovault',2]},
   {n:'FashionVault', d:'Fashion platform', url:'https://fashionvault-app-production.up.railway.app', logo:'fashionvault.png', media:['fashionvault',4]},
   {n:'SolarVault', d:'Solar platform', url:'https://solarvault-landing-production.up.railway.app', logo:'solarvault.jpg'},
+  {n:'RV Global', d:'Royalty tracking & catalog lookup for artists', url:'https://rv-catalog-production.up.railway.app', logo:'rvglobal.png'},
   {n:'VNC Radio', d:'Radio & streaming station', url:'https://vnc-radio-app-production.up.railway.app', logo:'radio.jpg', media:['radio',1]},
   {n:'VNC Realty & Investments', d:'Real estate investing', url:'https://vncrealtyinvestments.com', logo:'realty.jpg'},
   {n:'When the Block Starts Talking', d:'Book + AI series', url:'#wtbst', logo:'wtbst.jpg', status:'Read more'},
@@ -1193,6 +1202,11 @@ const BIZ = [
 const COMM = [
   {n:'TokyoYoungin', d:'Full site for New Orleans blogger TokyoYoungin: live streams, videos, donations, paid subscriptions, merch and the Detective Tokyo game.', url:'https://tokyoyoungin.com', logo:'tokyo.png', fit:true, big:true, side:'tokyo-cover.jpg'},
   {n:'Social Experiment', d:'Commissioned promotional advertisement: an invite-only party reel for the SE Private Party, in claymation and live-action cuts.', url:'#se-promo', logo:'se-logo.jpg', big:true, side:'se-flyer.jpg', status:'Watch the ad ↓'},
+];
+const GAMES = [
+  {n:'The Scribe', d:'A 3D story RPG where you play the one soul who wrote every scripture, across 14 chapters from Eden to the Library of Every Book. The first three chapters are free.', url:'https://the-scribe-production-47bf23ec.up.railway.app', logo:'scribe.jpg', big:true, side:'scribe-cover.jpg', status:'Play free ↗'},
+  {n:'Detective Tokyo', d:'The TokyoYoungin members game: walk the neighborhood as Detective Tokyo, snatch the hate posters, put yours up and help strangers to earn points toward merch.', url:'https://tokyoyoungin.com/#game', logo:'tokyo.png', fit:true, big:true, side:'tokyo-cover.jpg', status:'Play on TokyoYoungin ↗'},
+  {n:'Epoch Salon Simulator', d:'A Roblox-style 3D salon RPG: play as a customer, nail tech, lash tech, esthetician, cosmetologist or owner, and grow a new salon into a billion-dollar corporation.', mono:'EPOCH', c:'#f472b6', small:true, big:true, status:'Coming soon'},
 ];
 function faceHTML(x){
   const inner = x.logo ? `<img src="img/logos/${x.logo}" alt="">` : `<b style="color:${x.c};font-size:${x.small||x.mono.length>3?'17px':x.mono.length>2?'22px':'30px'}">${esc(x.mono)}</b>`;
@@ -1237,6 +1251,7 @@ $('#bizSheet').onclick = e => { if (e.target.id === 'bizSheet') closeBiz(); };
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#lb').classList.contains('open')) closeBiz(); });
 window.addEventListener('hashchange', closeBiz);
 $('#commCubes').innerHTML = COMM.map(cubeHTML).join('');
+$('#gameCubes').innerHTML = GAMES.map(cubeHTML).join('');
 /* promo cut switch */
 $$('#se-promo .seg button').forEach(b => b.onclick = () => {
   const v = $('#seVid'), c = b.dataset.cut;

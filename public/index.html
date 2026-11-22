@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061430">
+<link rel="icon" type="image/png" href="img/brand/wnb-logo.png">
 <title>Vincithe1 — Artist · Designer · Producer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -305,10 +307,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
 .gal figure:hover img{transform:scale(1.04)}
 .gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;font-size:13px;background:linear-gradient(transparent,rgba(0,0,0,.8));color:#fff}
 @media(max-width:600px){.gal{columns:2;column-gap:10px}.gal figure{margin-bottom:10px}}
-.lb{position:fixed;inset:0;z-index:200;background:rgba(5,6,8,.96);display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px}
+.lb{position:fixed;inset:0;z-index:200;background:rgba(6,20,48,.97);display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px}
 .lb.open{display:flex}
 .lb{overflow-y:auto}
-.lb img{max-width:100%;max-height:80vh;border-radius:12px}
+.lb img{max-width:100%;max-height:80vh;border-radius:2px}
 .lb p{color:var(--dim);margin-top:12px;font-size:14px;text-align:center}
 .lb button{position:absolute;background:rgba(255,255,255,.08);border:1px solid var(--line);color:#fff;width:48px;height:48px;border-radius:50%;font-size:20px;cursor:pointer}
 .lb .x{top:18px;right:18px}.lb .lbp{left:14px;top:50%}.lb .lbn{right:14px;top:50%}
@@ -334,26 +336,6 @@ button.cubecard:hover{border-color:var(--gold);transform:translateY(-3px)}
 .iggrid a:hover img{transform:scale(1.06)}
 .iggrid a::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.35) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Crect x='3' y='3' width='18' height='18' rx='5'/%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Ccircle cx='17.5' cy='6.5' r='1' fill='white'/%3E%3C/svg%3E") center/34px no-repeat;opacity:0;transition:opacity .25s}
 .iggrid a:hover::after{opacity:1}
-
-/* SITE BACKGROUND + GLASS BUTTONS */
-body{background:var(--void)}
-.sitebg{position:fixed;inset:0;z-index:-2;background:url(img/bg.jpg) center 30%/cover no-repeat}
-.sitebg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,8,10,.55),rgba(7,8,10,.78) 45%,rgba(7,8,10,.9))}
-.hero::before,.hero::after{z-index:-1}
-.panel,.prod,.vcard,.pc,.cubecard,.tile,.fact,.soc,.ighead,.rel,.gal figure{background:rgba(20,23,27,.62);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-footer{background:rgba(7,8,10,.7)}
-.btn,.tabs button{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);color:#fff;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-.btn:hover,.tabs button:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.5)}
-.btn.gold{background:rgba(227,179,65,.24);border-color:rgba(227,179,65,.75);color:#ffe7a8}
-.btn.gold:hover{background:rgba(227,179,65,.38)}
-.btn.green{background:rgba(56,224,123,.2);border-color:rgba(56,224,123,.75);color:#c9ffdc}
-.btn.green:hover{background:rgba(56,224,123,.34)}
-.tabs button.on{background:rgba(255,255,255,.85);color:var(--void);border-color:transparent}
-.playbtn{background:rgba(227,179,65,.3);border:1px solid rgba(227,179,65,.8);color:#ffe7a8;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-.choices label{background:rgba(255,255,255,.06);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-.choices input:checked+label{background:rgba(56,224,123,.3);color:#e6fff0;border-color:var(--green)}
-.lb button,.bsx{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-input,select,textarea{background:rgba(7,8,10,.55)}
 
 /* STREAMING PLAYERS */
 .pgrid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -422,6 +404,198 @@ input,select,textarea{background:rgba(7,8,10,.55)}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* ==========================================================
+   BLUEPRINT THEME (v2, Nov 2026)
+   Reference: SpaceX DESIGN.md from the awesome-design library
+   (technical, ghost buttons, tracked caps) + WNB schematic sheets.
+   ========================================================== */
+:root{
+  --void:#061430; --ink:#08193b; --panel:#0c2350; --bp:#1748a6; --bp-2:#0f3a8a;
+  --line:rgba(205,222,255,.2); --line-2:rgba(205,222,255,.38);
+  --text:#eef3ff; --dim:#a3b6dc; --gold:#f2c94c; --green:#5fe39a; --green-d:#0c5a3a;
+  --r:4px; color-scheme:dark;
+}
+html{-webkit-tap-highlight-color:transparent}
+body{background:var(--void);touch-action:manipulation}
+body::before{opacity:.035}
+::selection{background:var(--gold);color:var(--void)}
+
+/* drafting grid */
+.sitebg{position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(1200px 700px at 85% -10%,rgba(23,72,166,.55),transparent 60%),
+  radial-gradient(900px 600px at -10% 110%,rgba(23,72,166,.35),transparent 60%),
+  linear-gradient(rgba(205,222,255,.075) 1px,transparent 1px) 0 0/120px 120px,
+  linear-gradient(90deg,rgba(205,222,255,.075) 1px,transparent 1px) 0 0/120px 120px,
+  linear-gradient(rgba(205,222,255,.03) 1px,transparent 1px) 0 0/24px 24px,
+  linear-gradient(90deg,rgba(205,222,255,.03) 1px,transparent 1px) 0 0/24px 24px,
+  var(--void)}
+
+/* type */
+h1,h2,h3{text-wrap:balance}
+h2 em{color:var(--gold)}
+.lead{color:var(--dim)}
+.eyebrow{font-size:11px;letter-spacing:.2em;color:var(--text);border:1px solid var(--line-2);padding:6px 10px;display:inline-flex;margin-bottom:18px}
+.eyebrow::before{width:8px;height:8px;background:none;border:1px solid var(--gold);transform:rotate(45deg)}
+.mono,.fact small,.hl b,.tile small{font-variant-numeric:tabular-nums}
+
+/* focus */
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+
+/* surfaces: flat drafting panels, corner ticks */
+.panel,.prod,.vcard,.pc,.cubecard,.tile,.fact,.soc,.ighead,.rel,.gal figure,.clip,.press figure,.hl li,.lcard,.promo,.ibi,.bsin{
+  background-color:rgba(12,35,80,.78);border:1px solid var(--line);border-radius:var(--r);
+  -webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+.panel,.tile,.promo,.ighead,.sub,.schem{
+  --t:var(--gold);
+  background-image:
+   linear-gradient(var(--t),var(--t)),linear-gradient(var(--t),var(--t)),
+   linear-gradient(var(--t),var(--t)),linear-gradient(var(--t),var(--t)),
+   linear-gradient(var(--t),var(--t)),linear-gradient(var(--t),var(--t)),
+   linear-gradient(var(--t),var(--t)),linear-gradient(var(--t),var(--t));
+  background-repeat:no-repeat;
+  background-size:12px 1px,1px 12px,12px 1px,1px 12px,12px 1px,1px 12px,12px 1px,1px 12px;
+  background-position:-1px -1px,-1px -1px,calc(100% + 1px) -1px,calc(100% + 1px) -1px,-1px calc(100% + 1px),-1px calc(100% + 1px),calc(100% + 1px) calc(100% + 1px),calc(100% + 1px) calc(100% + 1px)}
+.rel,.vcard,.pc,.tile,.cubecard,.soc,.lcard,.gal figure{transition:transform .25s cubic-bezier(.16,1,.3,1),border-color .2s}
+.rel:hover,.vcard:hover,.pc:hover,.tile:hover,a.cubecard:hover,button.cubecard:hover,.soc:hover,.lcard:hover{border-color:var(--gold);transform:translateY(-2px)}
+.tile{background-color:rgba(12,35,80,.78)}
+.tile b{font-size:30px}
+.tile small{font-family:var(--mono);letter-spacing:.14em}
+.portrait,.bcover,.bimg,.cube .f,.iggrid,.drop,.empty,.note,.yt,.sub{border-radius:var(--r)}
+.cube .f{border-radius:2px;border-color:rgba(205,222,255,.3);background:#08193b}
+.gal figure{border-radius:var(--r)}
+.iggrid{gap:2px}
+
+/* buttons: square ghost, tracked caps */
+.btn,.tabs button,.seg button{font:600 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;border-radius:2px;
+  background:transparent;border:1px solid var(--line-2);color:var(--text);-webkit-backdrop-filter:none;backdrop-filter:none;
+  transition:background-color .2s,border-color .2s,color .2s,transform .15s}
+.btn{padding:15px 22px}
+.btn.sm{padding:10px 14px;font-size:11px}
+.btn:hover,.tabs button:hover{background:rgba(205,222,255,.08);border-color:var(--text)}
+.btn:active,.tabs button:active{transform:translateY(1px)}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--void)}
+.btn.gold:hover{background:#ffd967;border-color:#ffd967}
+.btn.green{background:var(--green);border-color:var(--green);color:var(--void)}
+.btn.green:hover{background:#7ff0b1}
+.tabs{gap:0;border:1px solid var(--line-2);display:inline-flex;flex-wrap:wrap;border-radius:2px}
+.tabs button{border:0;border-right:1px solid var(--line);padding:13px 16px;color:var(--dim)}
+.tabs button:last-child{border-right:0}
+.tabs button.on{background:var(--text);color:var(--void)}
+.seg{border-radius:2px;border-color:var(--line-2)}
+.seg button{border:0}
+.seg button.on{background:var(--gold);color:var(--void)}
+.chip{border-radius:2px;border-color:var(--line-2);color:var(--dim);font-size:10.5px;letter-spacing:.14em}
+.cubecard .chip.live{color:var(--green);border-color:var(--green)}
+.choices label{border-radius:2px;background:transparent}
+.choices input:checked+label{background:var(--gold);color:var(--void);border-color:var(--gold)}
+.lb button,.bsx{border-radius:2px;background:rgba(8,25,59,.9);border-color:var(--line-2)}
+
+/* forms */
+label{color:var(--dim)}
+input,select,textarea{background:rgba(6,20,48,.75);border-color:var(--line-2);border-radius:2px}
+select{background-color:#08193b;color:var(--text)}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+input::placeholder,textarea::placeholder{color:#6f84ad}
+.note.ok{background:rgba(95,227,154,.08);border-color:var(--green)}
+.note.fb{background:rgba(242,201,76,.08);border-color:var(--gold)}
+
+/* nav */
+nav{background:rgba(6,20,48,.88);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{height:22px;width:auto}
+.navlinks a{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;border-radius:2px}
+.navlinks a:hover,.navlinks a.on{background:rgba(205,222,255,.08);color:var(--text)}
+.navlinks a.on{box-shadow:inset 0 -2px 0 var(--gold)}
+.burger{border-radius:2px;border-color:var(--line-2)}
+@media(max-width:1180px){.navlinks{background:var(--ink)}.navlinks a.on{box-shadow:inset 3px 0 0 var(--gold);padding-left:12px}}
+
+/* hero */
+.hero::before,.hero::after{display:none}
+.hero{min-height:calc(100dvh - 64px)}
+.lleg{border-bottom:1px dashed var(--line-2)}
+.lleg h1 .one,.hero h1 .one{color:var(--gold)}
+.hw span{color:var(--gold)}
+.hero-grid{grid-template-columns:1.05fr .95fr;gap:48px}
+.hero-copy h1{font-size:clamp(76px,12vw,176px)}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.schem{position:relative;margin:0;border:1px solid var(--line-2);padding:34px 26px 18px 40px;
+  background-color:rgba(23,72,166,.28)}
+.schem-tag{position:absolute;top:10px;left:40px;font:500 10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--line-2);padding:4px 8px;color:var(--text)}
+.schem-stage{position:relative;aspect-ratio:3/2;margin-top:18px;
+  background:linear-gradient(rgba(205,222,255,.07) 1px,transparent 1px) 0 0/20px 20px,linear-gradient(90deg,rgba(205,222,255,.07) 1px,transparent 1px) 0 0/20px 20px}
+.schem-stage::before,.schem-stage::after{content:"";position:absolute;background:rgba(242,201,76,.45);pointer-events:none}
+.schem-stage::before{left:50%;top:0;bottom:0;width:1px;background:repeating-linear-gradient(transparent 0 6px,rgba(242,201,76,.5) 6px 12px)}
+.schem-stage::after{top:50%;left:0;right:0;height:1px;background:repeating-linear-gradient(90deg,transparent 0 6px,rgba(242,201,76,.5) 6px 12px)}
+.schem video{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;mix-blend-mode:screen;display:block}
+.dim{position:absolute;font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);pointer-events:none}
+.dim-x{left:40px;right:26px;bottom:52px;height:0;border-top:1px solid var(--line-2)}
+.dim-x::before,.dim-x::after{content:"";position:absolute;top:-5px;width:1px;height:9px;background:var(--line-2)}
+.dim-x::before{left:0}.dim-x::after{right:0}
+.dim-x i{position:absolute;left:50%;top:-8px;transform:translateX(-50%);background:#0f2a62;padding:0 8px;font-style:normal}
+.dim-y{left:16px;top:56px;bottom:66px;width:0;border-left:1px solid var(--line-2)}
+.dim-y::before,.dim-y::after{content:"";position:absolute;left:-5px;width:9px;height:1px;background:var(--line-2)}
+.dim-y::before{top:0}.dim-y::after{bottom:0}
+.dim-y i{position:absolute;top:50%;left:-7px;transform:translateY(-50%) rotate(-90deg);transform-origin:center;font-style:normal;white-space:nowrap;background:#0f2a62;padding:0 6px;margin-left:-14px}
+.schem figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:34px;font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.vtoggle{font:600 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;background:transparent;color:var(--text);border:1px solid var(--line-2);border-radius:2px;padding:7px 10px;cursor:pointer}
+.vtoggle:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ticker */
+.ticker{background:var(--gold);color:var(--void);border-block:1px solid var(--gold)}
+.ticker div{font-size:22px;letter-spacing:.04em}
+
+/* EPK, portrait, book */
+.portrait{border-color:var(--line-2)}
+.epkh{color:var(--gold)}
+#bio p.tribute{border-left-color:var(--gold);background:rgba(242,201,76,.07);border-radius:0 2px 2px 0}
+.hl b{color:var(--gold)}
+.yt{background:linear-gradient(120deg,rgba(150,20,20,.45),rgba(12,35,80,.8) 70%)}
+
+/* subscribe */
+.sub{background-color:var(--bp);border:1px solid var(--line-2);border-radius:var(--r)}
+.sub::after{content:"";position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px) 0 0/24px 24px}
+.sub{position:relative;overflow:hidden}
+.sub>*{position:relative;z-index:1}
+.sub input,.sub textarea{background:rgba(6,20,48,.55);border-color:rgba(255,255,255,.35)}
+
+/* brand sheets */
+.bpgrid{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-top:28px;align-items:start}
+.bp{margin:0;border:1px solid var(--line-2);border-radius:var(--r);overflow:hidden;background:var(--bp);cursor:zoom-in}
+.bp img{width:100%;height:auto;display:block}
+@media(max-width:760px){.bpgrid{grid-template-columns:1fr}}
+.dwgs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:16px}
+@media(max-width:900px){.dwgs{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.dwgs{grid-template-columns:1fr 1fr}}
+.dwg{margin:0;background:#f4f1e8;border-radius:2px;overflow:hidden;cursor:zoom-in;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.dwg:hover{transform:translateY(-2px) rotate(-.4deg)}
+.dwg>div{aspect-ratio:1;overflow:hidden;padding:14px;
+  background:linear-gradient(rgba(23,72,166,.08) 1px,transparent 1px) 0 0/16px 16px,linear-gradient(90deg,rgba(23,72,166,.08) 1px,transparent 1px) 0 0/16px 16px}
+.dwg.dark{background:#0b0d12}
+.dwg.dark>div{background:linear-gradient(rgba(205,222,255,.06) 1px,transparent 1px) 0 0/16px 16px,linear-gradient(90deg,rgba(205,222,255,.06) 1px,transparent 1px) 0 0/16px 16px}
+.dwg img{width:100%;height:100%;object-fit:contain;min-height:0}
+.dwg figcaption{display:flex;justify-content:space-between;gap:8px;padding:9px 10px;border-top:1px solid rgba(6,20,48,.15);font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#1b2a4a}
+.dwg.dark figcaption{color:var(--dim);border-top-color:var(--line)}
+.dwg figcaption span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+
+/* footer title block */
+footer{background:rgba(6,20,48,.92);border-top:1px solid var(--line-2);padding:34px 0 calc(40px + env(safe-area-inset-bottom))}
+footer .wrap{display:block}
+.tblock{display:grid;grid-template-columns:repeat(4,1fr) 140px;border:1px solid var(--line-2)}
+.tblock>div{padding:12px 14px;border-right:1px solid var(--line-2);min-width:0}
+.tblock>div:last-child{border-right:0}
+.tblock small{display:block;font:500 10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.tblock b{display:block;font:700 15px var(--body);color:var(--text);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tbmark{display:grid;place-items:center}
+.tbmark img{width:100%;max-width:110px;height:auto}
+.fline{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:16px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:700px){.tblock{grid-template-columns:1fr 1fr}.tblock>div{border-bottom:1px solid var(--line-2)}.tblock>div:nth-child(2n){border-right:0}.tbmark{grid-column:1/-1;border-bottom:0!important}}
+
+/* inbox */
+#inbox{background:var(--ink);border-top:2px solid var(--gold)}
+
 </style>
 </head>
 <body>
@@ -429,7 +603,7 @@ input,select,textarea{background:rgba(7,8,10,.55)}
 
 <nav>
   <div class="wrap">
-    <a class="logo" href="#home">VINCI<span>THE1</span></a>
+    <a class="logo" href="#home"><img src="img/brand/wnb-logo.png" alt="" width="44" height="22">VINCI<span>THE1</span></a>
     <ul class="navlinks" id="navlinks">
       <li><a href="#music">Music</a></li>
       <li><a href="#gallery">Gallery</a></li>
@@ -453,19 +627,31 @@ input,select,textarea{background:rgba(7,8,10,.55)}
     </div>
   </div>
   <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow">New Orleans · Wake N Bake Entertainment</div>
+    <div class="hero-copy">
+      <div class="eyebrow">Sheet 01 · New Orleans, LA</div>
       <h1>Vinci<br>the<span class="one">1</span></h1>
       <div class="roles">
         <span class="chip">Recording Artist</span><span class="chip">Graphic Designer</span>
         <span class="chip">Media Producer</span><span class="chip">Author</span><span class="chip">Founder</span>
       </div>
       <div class="hero-cta">
-        <a class="btn gold" href="#music">▶ Stream the music</a>
+        <a class="btn gold" href="#music">Stream the Music</a>
         <a class="btn" href="#book">Book Vinci</a>
         <a class="btn" href="#shop">Shop Wake N Bake</a>
       </div>
     </div>
+    <figure class="schem" aria-label="Wake N Bake chrome logo">
+      <span class="schem-tag">Model: WNB-01</span>
+      <span class="dim dim-x" aria-hidden="true"><i>Est. 2016</i></span>
+      <span class="dim dim-y" aria-hidden="true"><i>NOLA</i></span>
+      <div class="schem-stage">
+        <video id="chromeVid" src="img/brand/wnb-chrome.mp4" poster="img/brand/wnb-chrome.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true" width="720" height="480"></video>
+      </div>
+      <figcaption>
+        <span>Front elevation · Chrome finish</span>
+        <button type="button" class="vtoggle" id="chromeToggle" aria-label="Pause logo animation">Pause</button>
+      </figcaption>
+    </figure>
   </div>
 </header>
 
@@ -826,10 +1012,25 @@ input,select,textarea{background:rgba(7,8,10,.55)}
   <div class="wrap">
     <div class="eyebrow">Wake &amp; Bake Clothing Co.</div>
     <img src="img/wnb/banner.jpg" alt="Wake &amp; Bake Clothing Co. banner" style="width:100%;border-radius:16px;border:1px solid var(--line);margin:4px 0 28px">
-    <div style="display:flex;align-items:center;gap:16px"><img src="img/wnb/badge.png" alt="WNB badge" style="width:72px;height:72px;border-radius:50%"><h2>Shop <em>the Drip</em></h2></div>
+    <div style="display:flex;align-items:center;gap:16px"><img src="img/brand/wnb-logo.png" alt="WNB" width="120" height="61" style="width:120px;height:auto"><h2>Shop <em>the Drip</em></h2></div>
     <p class="lead">Wake-and-bake humor, New Orleans streetwear and Wake N Bake Entertainment merch, printed to order and shipped across the US. Checkout runs through the official Etsy store.</p>
     <div class="tabs" id="shopTabs" style="margin-top:28px"></div>
     <div class="shopgrid" id="shopgrid"></div>
+    <div class="sheets">
+      <div class="eyebrow" style="margin-top:56px">Brand Sheets · WNB Clothing Co.</div>
+      <h3 style="font-size:clamp(34px,6vw,56px)">Drawn in <span style="color:var(--gold)">the shop</span></h3>
+      <div class="bpgrid">
+        <figure class="bp"><img src="img/brand/bp-logo.jpg" alt="WNB logo schematic drawing, model WNB-L01" width="1400" height="933" loading="lazy"></figure>
+        <figure class="bp"><img src="img/brand/bp-moneybag.jpg" alt="WNB money bag schematic drawing, model WNB-01" width="1050" height="1400" loading="lazy"></figure>
+      </div>
+      <div class="dwgs">
+        <figure class="dwg"><div><img src="img/brand/yaga.png" alt="Wake N Bake Kickin' Bowls YAGA New Orleans design" width="863" height="900" loading="lazy"></div><figcaption><b>DWG 01</b><span>Kickin' Bowls · YAGA</span></figcaption></figure>
+        <figure class="dwg"><div><img src="img/brand/fork.png" alt="Wake N Bake fork and hundred design" width="860" height="500" loading="lazy"></div><figcaption><b>DWG 02</b><span>Wake N Bake · 100</span></figcaption></figure>
+        <figure class="dwg"><div><img src="img/brand/bake-inc.png" alt="Wake N Bake Inc circular design" width="482" height="479" loading="lazy"></div><figcaption><b>DWG 03</b><span>Wake N Bake Inc</span></figcaption></figure>
+        <figure class="dwg"><div><img src="img/brand/briefcase.png" alt="WNB briefcase full of cash design" width="768" height="683" loading="lazy"></div><figcaption><b>DWG 04</b><span>The Briefcase</span></figcaption></figure>
+        <figure class="dwg dark"><div><img src="img/brand/wnb-logo.png" alt="WNB tie-dye logo" width="927" height="473" loading="lazy"></div><figcaption><b>DWG 05</b><span>WNB Primary Mark</span></figcaption></figure>
+      </div>
+    </div>
     <div class="split" style="margin-top:40px;align-items:center">
       <video src="img/vid/wnb-production.mp4" controls playsinline preload="none" poster="img/vid/wnb-production.jpg" style="width:100%;max-height:640px;border-radius:18px;border:1px solid var(--line);background:#000"></video>
       <div><div class="eyebrow">Where it started</div><h3 style="font-size:clamp(34px,6vw,52px)">WNB <span style="color:var(--gold)">production</span></h3><p style="color:var(--dim);margin-top:10px">Pressing the original WNB 4:20AM tees by hand in 2017, back when every shirt was printed in the shop.</p></div>
@@ -857,7 +1058,7 @@ input,select,textarea{background:rgba(7,8,10,.55)}
         <h3>Get featured</h3>
         <p style="color:var(--dim);margin:6px 0 18px;font-size:14px">Rocking Wake N Bake? Send a pic and you could land on the site and on @wakenbakeco16.</p>
         <form data-kind="Fan photo submission" id="fanForm">
-          <label class="drop" id="drop" for="fanFile"><span id="dropTxt">📸 Tap to choose a photo</span></label>
+          <label class="drop" id="drop" for="fanFile"><span id="dropTxt">Tap to Choose a Photo</span></label>
           <input type="file" id="fanFile" accept="image/*" style="display:none">
           <div class="row">
             <label>Name / IG handle<input name="name" required placeholder="@yourhandle"></label>
@@ -873,7 +1074,7 @@ input,select,textarea{background:rgba(7,8,10,.55)}
       </div>
       <div class="panel">
         <h3>Featured fam</h3>
-        <div class="fangrid" id="featured"><div class="empty" style="grid-column:1/-1">The first featured fits drop here. Submit yours. 👀</div></div>
+        <div class="fangrid" id="featured"><div class="empty" style="grid-column:1/-1">The first featured fits drop here. Submit yours.</div></div>
       </div>
     </div>
   </div>
@@ -966,8 +1167,14 @@ input,select,textarea{background:rgba(7,8,10,.55)}
 
 <footer>
   <div class="wrap">
-    <span>© <span id="yr"></span> Vincithe1 · Wake N Bake Entertainment · New Orleans</span>
-    <span>@vincithe1 everywhere</span>
+    <div class="tblock" aria-label="Title block">
+      <div><small>Drawn by</small><b>Vincithe1</b></div>
+      <div><small>Sheet</small><b id="tbSheet">01 · Home</b></div>
+      <div><small>Location</small><b>New Orleans, LA</b></div>
+      <div><small>Label</small><b>Wake N Bake Ent.</b></div>
+      <div class="tbmark"><img src="img/brand/wnb-logo.png" alt="WNB" width="927" height="473" loading="lazy"></div>
+    </div>
+    <div class="fline"><span>© <span id="yr"></span> Vincithe1 · Wake N Bake Entertainment · New Orleans</span><span>@vincithe1 everywhere</span></div>
   </div>
 </footer>
 
@@ -1322,6 +1529,9 @@ function route(){
     if (target.closest('.vpane')?.hidden) openVncTab(target.closest('.vpane').dataset.pane);
     requestAnimationFrame(() => target.scrollIntoView({behavior: page === curPage ? 'smooth' : 'instant', block:'start'}));
   } else if (page !== curPage || !target) window.scrollTo({top:0, behavior:'instant'});
+  const SHEETS={home:'Home',music:'Music',gallery:'Gallery',epk:'EPK',wtbst:'The Book',vnc:'VNC Labs',book:'Book Me',shop:'Shop',contact:'Contact',inbox:'Inbox'};
+  const tb=document.getElementById('tbSheet'); if (tb) tb.textContent = String(Object.keys(PAGES).indexOf(page)+1).padStart(2,'0')+' · '+SHEETS[page];
+  document.body.dataset.page = page;
   curPage = page;
 }
 window.addEventListener('hashchange', route);
@@ -1348,7 +1558,7 @@ function renderFeatured(docs){
   docs.sort((a,b) => (b.at||'').localeCompare(a.at||''));
   $('#featured').innerHTML = docs.length
     ? docs.map(d => `<div class="fan"><img src="${esc(d.photo)}" alt="Fan wearing ${esc(d.piece||'Wake N Bake')}"><small>${esc(d.name)}${d.piece?' · '+esc(d.piece):''}</small></div>`).join('')
-    : `<div class="empty" style="grid-column:1/-1">The first featured fits drop here. Submit yours. 👀</div>`;
+    : `<div class="empty" style="grid-column:1/-1">The first featured fits drop here. Submit yours.</div>`;
 }
 if (API_LIVE) fetch('/api/featured').then(r => r.ok ? r.json() : []).then(renderFeatured).catch(() => {});
 const ready = (async () => {
@@ -1413,7 +1623,7 @@ $$('form[data-kind]').forEach(form => form.addEventListener('submit', async e =>
   if (saved) {
     note.className = 'note ok';
     note.textContent = kind === 'Subscriber' ? "You're on the list. Watch for the next drop. 🔥" : "Got it. Your request went straight to Vinci's inbox; expect a reply soon.";
-    form.reset(); if (form.id==='fanForm'){ fanImg=null; $('#drop').innerHTML='<span>📸 Tap to choose a photo</span>'; }
+    form.reset(); if (form.id==='fanForm'){ fanImg=null; $('#drop').innerHTML='<span>Tap to Choose a Photo</span>'; }
   } else {
     const msg = summarize(kind, data);
     note.className = 'note fb';
@@ -1472,6 +1682,12 @@ function renderInbox(){
     } catch { b.textContent = "Couldn't feature, try again"; }
   });
 }
+
+(()=>{const v=document.getElementById('chromeVid'),b=document.getElementById('chromeToggle');if(!v||!b)return;
+const set=p=>{b.textContent=p?'Play':'Pause';b.setAttribute('aria-label',(p?'Play':'Pause')+' logo animation');};
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();set(true);}
+b.addEventListener('click',()=>{if(v.paused){v.play();set(false);}else{v.pause();set(true);}});
+GALS.b=[...document.querySelectorAll('.bp img,.dwg img')].map(i=>[i.getAttribute('src'),i.alt]);document.querySelectorAll('.bp,.dwg').forEach((f,i)=>f.addEventListener('click',()=>{lbG='b';lbI=i;lbShow();document.getElementById('lb').classList.add('open');}));})();
 </script>
 </body>
 </html>

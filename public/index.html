@@ -1579,8 +1579,10 @@ const WGAL = [
   ['img/wnb-34.jpg','WNB ink: the hand'],
   ['img/wnb-35.jpg','WNB ink: the fam got it too'],
   ['img/wnb-36.jpg','WNB ink: forever on the face'],
+  ['img/wnb-37.jpg','Wake & Bake hoodie with the fam'],
+  ['img/wnb-38.jpg','Vincithe1 × Wake & Bake "CRAIG" graphic (2019)'],
 ];
-const VGAL = Array.from({length:28},(_,i)=>[`img/v1-${String(i+1).padStart(2,'0')}.jpg`,'Vincithe1']);
+const VGAL = Array.from({length:32},(_,i)=>[`img/v1-${String(i+1).padStart(2,'0')}.jpg`,'Vincithe1']);
 const GALS = {w:WGAL, v:VGAL, d:RELEASES.map(r=>[`img/covers/${r.c}`,`${r.t} — ${r.s} · ${r.ty} ${r.y}`])};
 function renderGal(el, key){
   el.innerHTML = GALS[key].map(([src,cap],i)=>`<figure data-g="${key}" data-i="${i}"><img src="${src}" alt="${esc(cap)}" loading="lazy">${key==='w'?`<figcaption>${esc(cap)}</figcaption>`:''}</figure>`).join('');

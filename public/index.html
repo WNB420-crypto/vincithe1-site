@@ -60,7 +60,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
   background:radial-gradient(circle,rgba(56,224,123,.22),transparent 62%);filter:blur(20px);z-index:-1}
 .hero::before{content:"";position:absolute;width:600px;height:600px;left:-260px;bottom:-200px;border-radius:50%;
   background:radial-gradient(circle,rgba(227,179,65,.18),transparent 62%);z-index:-1}
-.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
 .hero h1{font-size:clamp(78px,17vw,220px);font-weight:900;line-height:.82}
 .hero h1 .one{color:var(--gold);display:inline-block;transform:rotate(-4deg)}
 .hero{flex-direction:column;justify-content:center;align-items:stretch}
@@ -466,14 +466,6 @@ input,select,textarea{background:rgba(7,8,10,.55)}
         <a class="btn" href="#shop">Shop Wake N Bake</a>
       </div>
     </div>
-    <div class="hero-card">
-      <div class="disc" id="disc"><div class="label">V1</div></div>
-      <div class="np">
-        <div><small id="npState">Featured track</small><strong id="npTitle">Wassup Wit It (GTA)</strong><span style="color:var(--dim);font-size:13px" id="npSub">prod. AudioHittaz</span></div>
-        <button class="playbtn" id="heroPlay" aria-label="Play">▶</button>
-      </div>
-      <div class="wave" id="wave"></div>
-    </div>
   </div>
 </header>
 
@@ -551,12 +543,6 @@ input,select,textarea{background:rgba(7,8,10,.55)}
     </div>
     <div class="players" id="players">
       <div class="eyebrow" style="margin-top:44px">Listen now</div>
-      <div id="playersLive" hidden>
-        <div class="pgrid2">
-          <iframe title="Vincithe1 on Spotify" src="https://open.spotify.com/embed/artist/5gmB6piRaZGQ5LRiwyK731?theme=0" height="452" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-          <iframe title="Vincithe1 on Apple Music" src="https://embed.music.apple.com/us/artist/vincithe1/1332519973" height="452" loading="lazy" allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"></iframe>
-        </div>
-      </div>
       <div class="lgrid" id="playersLinks">
         <a class="lcard" href="https://open.spotify.com/artist/5gmB6piRaZGQ5LRiwyK731" target="_blank" rel="noopener" style="--c:#1db954"><b>Spotify</b><span>Play Vincithe1 ↗</span></a>
         <a class="lcard" href="https://music.apple.com/us/artist/vincithe1/1332519973" target="_blank" rel="noopener" style="--c:#fa2d48"><b>Apple Music</b><span>Play Vincithe1 ↗</span></a>
@@ -999,7 +985,6 @@ const tk = ['Vincithe1','New Orleans','Wake N Bake Ent.','Book now','Design · M
 $('#tick').innerHTML = [...tk,...tk,...tk,...tk].map(t => `<span>${t}</span>✦`).join('');
 
 /* waveform */
-$('#wave').innerHTML = Array.from({length:42},(_,i)=>`<i style="height:${20+Math.abs(Math.sin(i*1.7))*80}%;animation-delay:${(i%7)*-.13}s"></i>`).join('');
 
 /* tracks */
 const C = n => `url(img/covers/${n}.jpg)`;
@@ -1044,16 +1029,7 @@ function renderTracks(){
   $$('.track').forEach(el => el.onclick = () => { cur = +el.dataset.i; setNP(); renderTracks(); });
 }
 function setNP(){
-  $('#npTitle').textContent = TRACKS[cur].t;
-  $('#npSub').textContent = TRACKS[cur].s;
 }
-$('#heroPlay').onclick = () => {
-  playing = !playing;
-  $('#disc').classList.toggle('spin', playing);
-  $('#wave').classList.toggle('on', playing);
-  $('#heroPlay').textContent = playing ? '❚❚' : '▶';
-  $('#npState').textContent = playing ? 'Now spinning' : 'Featured track';
-};
 renderTracks();
 
 /* videos */
@@ -1157,7 +1133,7 @@ $('#socials').innerHTML = SOC.map(([n,u])=>`<a class="soc" href="${u}" target="_
 
 /* streaming players: switch on when hosted on its own domain */
 const LIVE_SITE = /^https?:$/.test(location.protocol) && !/(^|\.)(claude\.ai|claudeusercontent\.com|anthropic\.com)$/.test(location.hostname) && location.hostname !== 'localhost';
-if (LIVE_SITE) $('#playersLive').hidden = false;
+
 
 /* instagram grid */
 $('#iggrid').innerHTML = ['img/v1-03.jpg','img/wnb-07.jpg','img/v1-06.jpg','img/v1-02.jpg','img/wnb-03.jpg','img/v1-05.jpg','img/v1-11.jpg','img/wnb-02.jpg','img/v1-08.jpg']

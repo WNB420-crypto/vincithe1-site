@@ -634,6 +634,16 @@ button.vcard:hover .vthumb img{opacity:1}
 .gemlink:hover{color:#ffd967}
 .glinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 
+/* discography: dense cover wall, 10 per row */
+.disco{grid-template-columns:repeat(10,minmax(0,1fr));gap:10px}
+.rel div{padding:7px 8px 9px}
+.rel b{font-size:12px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rel small{display:none}
+.disco .rel .ty{font-size:9px;letter-spacing:.06em;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rel .mvb{top:4px;right:4px;font-size:8px;padding:2px 4px}
+@media(max-width:900px){.disco{grid-template-columns:repeat(8,minmax(0,1fr))}}
+@media(max-width:600px){.disco{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}.rel div{display:none}.rel .mvb{font-size:0;width:8px;height:8px;padding:0;border-radius:50%}}
+
 </style>
 </head>
 <body>
@@ -1287,10 +1297,10 @@ let discoF='All';
 function renderDisco(){
   const list=RELEASES.map((r,i)=>[r,i]).filter(([r])=>discoF==='All'||KIND[r.ty]===discoF);
   $('#disco').innerHTML = list.map(([r,i])=>`
-  <button class="rel" data-i="${i}" type="button">
+  <button class="rel" data-i="${i}" type="button" aria-label="${esc(r.t)}, ${esc(r.ty)} ${r.y}" title="${esc(r.t)}">
     <img src="img/covers/${r.c}" alt="${esc(r.t)} cover art" loading="lazy" width="500" height="500">
     ${r.mv.length?`<span class="mvb">${r.mv.length>1?r.mv.length+' videos':'Video'}</span>`:''}
-    <div><b>${esc(r.t)}</b><small>${esc(r.s)}</small><div class="ty">${esc(r.ty)} · ${r.y}${r.n>1?' · '+r.n+' tracks':''}</div></div>
+    <div><b>${esc(r.t)}</b><small>${esc(r.s)}</small><div class="ty">${esc(r.ty)} · ${r.y}</div></div>
   </button>`).join('');
   $$('#disco .rel').forEach(b=>b.onclick=()=>{ lbG='d'; lbI=+b.dataset.i; lbShow(); $('#lb').classList.add('open'); });
 }

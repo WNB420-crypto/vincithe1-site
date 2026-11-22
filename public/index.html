@@ -102,13 +102,6 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .split{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}
 @media(max-width:900px){.split{grid-template-columns:1fr}}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:24px}
-.track{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line);cursor:pointer}
-.track:last-child{border:none}
-.track .n{font-family:var(--mono);color:var(--dim);font-size:13px;text-align:center}
-.track b{display:block;font-size:16px}
-.track small{color:var(--dim);font-size:13px}
-.track.active b{color:var(--green)}
-.track .art{width:44px;height:44px;border-radius:10px;background-size:cover;background-position:center}
 .disco{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:18px;margin-top:22px}
 @media(max-width:520px){.disco{grid-template-columns:repeat(2,1fr);gap:12px}}
 .rel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:.25s;text-align:left;padding:0;color:inherit;font:inherit}
@@ -697,27 +690,23 @@ footer .wrap{display:block}
   <div class="wrap">
     <div class="eyebrow">Stream</div>
     <h2>Music <em>&amp;</em> Videos</h2>
-    <p class="lead">Straight out the Crescent City. Tap a track to queue it, then open it on your platform.</p>
-    <div class="split">
-      <div class="panel reveal">
-        <h3 style="margin-bottom:8px">Tracks</h3>
-        <div id="tracks"></div>
-        <div class="platforms">
-          <a class="btn sm" href="https://open.spotify.com/artist/5gmB6piRaZGQ5LRiwyK731" target="_blank" rel="noopener">Spotify</a>
-          <a class="btn sm" href="https://music.apple.com/us/artist/vincithe1/1332519973" target="_blank" rel="noopener">Apple Music</a>
-          <a class="btn sm" href="https://www.youtube.com/@vincithe1" target="_blank" rel="noopener">YouTube</a>
-          <a class="btn sm" href="https://www.tiktok.com/@vincithe1" target="_blank" rel="noopener">TikTok</a>
-        </div>
-      </div>
-      <div class="panel reveal" style="display:flex;flex-direction:column;justify-content:space-between;gap:20px;background:linear-gradient(160deg,#1a1508,#14171b 60%)">
+    <p class="lead">Straight out the Crescent City. Stream the catalog on your platform.</p>
+    <div class="split" style="grid-template-columns:minmax(0,1fr)">
+      <div class="panel reveal" style="display:flex;flex-direction:column;justify-content:space-between;gap:20px">
         <div>
           <span class="chip" style="color:var(--gold);border-color:var(--gold)">Label</span>
-          <h3 style="margin-top:14px;font-size:40px">Wake N Bake<br>Entertainment</h3>
+          <h3 style="margin-top:14px;font-size:clamp(30px,8vw,40px)">Wake N Bake<br>Entertainment</h3>
           <p class="lead" style="font-size:15px">Independent, artist-owned. Every release distributed through UnitedMasters, every royalty tracked.</p>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <a class="btn gold" href="#book">Book a feature</a>
           <a class="btn" href="#subscribe">Get drop alerts</a>
+        </div>
+        <div class="platforms">
+          <a class="btn sm" href="https://open.spotify.com/artist/5gmB6piRaZGQ5LRiwyK731" target="_blank" rel="noopener">Spotify</a>
+          <a class="btn sm" href="https://music.apple.com/us/artist/vincithe1/1332519973" target="_blank" rel="noopener">Apple Music</a>
+          <a class="btn sm" href="https://www.youtube.com/@vincithe1" target="_blank" rel="noopener">YouTube</a>
+          <a class="btn sm" href="https://www.tiktok.com/@vincithe1" target="_blank" rel="noopener">TikTok</a>
         </div>
       </div>
     </div>
@@ -1214,30 +1203,12 @@ const RELEASES = [
   {t:'$plits', s:'Vincithe1 ft. G.ppls', ty:'Single', c:'splits'},
   {t:'Veni, Vidi, Vici', s:'Vincithe1', ty:'Project', c:'veni-vidi-vici'},
 ];
-const TRACKS = [
-  {t:'Wassup Wit It (GTA)', s:'Vincithe1 · prod. AudioHittaz', g:'linear-gradient(135deg,#38e07b,#0b3b1f)'},
-  ...RELEASES.slice(0,7).map(r=>({t:r.t, s:r.s, g:C(r.c)})),
-  {t:'Real Don (feat. Kuttagang Jblackk)', s:'Vincithe1, Kuttagang Jblackk', g:C('real-don')},
-];
 const spot = t => `https://open.spotify.com/search/${encodeURIComponent('Vincithe1 '+t.replace(/\(.*\)/,''))}`;
 $('#disco').innerHTML = RELEASES.map((r,i)=>`
   <button class="rel reveal" data-i="${i}" type="button">
     <img src="img/covers/${r.c}.jpg" alt="${esc(r.t)} cover art" loading="lazy">
     <div><b>${esc(r.t)}</b><small>${esc(r.s)}</small><div class="ty">${esc(r.ty)}</div></div>
   </button>`).join('');
-let cur = 0, playing = false;
-function renderTracks(){
-  $('#tracks').innerHTML = TRACKS.map((x,i)=>`
-    <div class="track ${i===cur?'active':''}" data-i="${i}">
-      <div class="art" style="background:${x.g};background-size:cover;background-position:center"></div>
-      <div><b>${esc(x.t)}</b><small>${esc(x.s)}</small></div>
-      <a class="btn sm" href="${spot(x.t)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Listen</a>
-    </div>`).join('');
-  $$('.track').forEach(el => el.onclick = () => { cur = +el.dataset.i; setNP(); renderTracks(); });
-}
-function setNP(){
-}
-renderTracks();
 
 /* videos */
 const VIDS = [
